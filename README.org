@@ -1,1 +1,1 @@
-This is my personal configuration of [[https://orgmode.org/][org-mode]] and [[https://www.gnu.org/software/emacs/][Emacs]] while i was preparing for my *Master thesis*.
+main.org

@@ -1,6 +1,4 @@
-#+TITLE:            Serverless Edge Computing
-#+SUBTITLE:         Suspicious behavior detection using Deep Learning
- 
+#+TITLE:            org-master using org mode and emacs
 #+LATEX_CLASS:      mimosis
 #+latex_header:     \KOMAoptions{headings=small,fontsize=12,DIV=12}
 #+SETUPFILE:        ./lib/thesis.setup
@@ -8,12 +6,19 @@
 #+INCLUDE:          ./lib/code.inc
 #+CALL:             init()
 #+EXCLUDE_TAGS:     journal noexport ignore
-#+EXPORT_FILE_NAME: infra_thesis.pdf
+#+EXPORT_FILE_NAME: org-master.pdf
 # ---------------------------------------------------------------------
 #+INCLUDE: "./title.org"
 #+latex_header: \pagenumbering{arabic}
 
+
+
 * Introduction
+*This is my personal configuration of [[https://orgmode.org/][org-mode]] and [[https://www.gnu.org/software/emacs/][Emacs]] while i was preparing for my *Master thesis*.* the repo is in maintenance state
+- this is a citation cite:nikouei19_i_safe for a paper using [[https://github.com/jkitchin/org-ref][org-ref]], another one cite:nikouei19_decen_smart_surveil_micros_platf
+- you also use the wonderful org-ref utility to manage your glossaries and acronyms, which is great :)
+- this is an acronym for ac:computer and ac:latex, you can see the raw document of the [[file:main.org]] to see the syntax used here.
+- i use [[https://www.emacswiki.org/emacs/FlySpell][flyspell]] for spell checking 
 #+name: code_block
 #+caption: A Code Block using Python
 #+begin_src python :results output :exports both
@@ -25,15 +30,6 @@
   print()
   print(Cap("Hello"))
 #+end_src
-* Video management systems
-* IOT, Cloud Computing, Edge and Fog computing                     :noexport:
-** IOT 
-** Cloud Computing & IOT
-** Edge & Fog computing
-* Edge and Fog computing on VMS                                    :noexport:
-* Conclusion                                                       :noexport:
-* Introduction                                             :ARCHIVE:noexport:
-
 ** Equation and tables
 
 #+name: mytable
@@ -72,11 +68,3 @@ This beautifies table borders. It will only work if the booktabs package is load
 #+BIND: org-latex-tables-booktabs t
 And this configuration increases the default width of images, so that they are larger and more readable on print.
 #+BIND: org-latex-image-default-width ".97\\linewidth"
-
-* Footnotes
-[fn:1] : just testing the footnote, this is a citation cite:nikouei19_i_safe example, and this is a link to [[https://www.google.com][Google]].
-
-# Local Variables:
-# mode: org
-# org-export-allow-bind-keywords: t
-# End:
