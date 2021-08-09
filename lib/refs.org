@@ -1,0 +1,53 @@
+#+PROPERTY: header-args :exports none :tangle "~/dox/std/ESI/pfe/docs/thesis_infra/lib/refs.bib"
+#+LATEX_CLASS_OPTIONS: [12pt]
+#+LATEX_HEADER: \usepackage[natbib=true]{biblatex} \DeclareFieldFormat{apacase}{#1} \addbibresource{~/dox/std/ESI/pfe/docs/thesis_infra/lib/refs.bib}
+#+LATEX_HEADER: \usepackage{parskip}
+#+OPTIONS: <:nil c:nil todo:nil H:5
+
+* Computer Vision
+** Image-to-Image Translation
+***** CycleGAN: Unpaired Image-to-Image Translation using
+          Cycle-Consistent Adversarial Networks citep:zhu2017CycleGAN.
+    #+begin_src bibtex
+      @inproceedings{zhu2017CycleGAN,
+        title =        {Unpaired Image-to-Image Translation using
+                        Cycle-Consistent Adversarial Networks},
+        author =       {Zhu, Jun-Yan and Park, Taesung and Isola,
+                        Phillip and Efros, Alexei A},
+        booktitle =    {International Conference on Computer
+                        Vision (ICCV)},
+        keywords =     {GANs, computer vision},
+        year =         {2017},
+      }
+    #+end_src
+    This is one of my favorite papers. The authors extending some
+    of the classic work done in Pix2Pix citep:isola2017pix2pix to
+    /unpaired/ sets of images. At the core of the CycleGAN
+    procedure are two Generative Adversarial Networks that learn
+    to map images between two domains. The key addition that makes
+    this process work is an additional loss term, which enforces
+    that images passed through both generators should be as close
+    as possible to the input image. This has practical motivation:
+    if we translate one way and then translate back, we should
+    expect the input to be unchanged. The results are impressive
+    and eye catching. This work inspired a paper of mine:
+    GeneSIS-RT citep:stein2018genesisrt.
+
+* IOT
+#+begin_src bibtex
+  @article{isafe,
+           author = {Yahya Nikouei, Seyed ; Chen, Yu ; Aved, Alexander ; Blasch, Erik ; Faughnan, Timothy R.},
+           title = { I-SAFE: Instant Suspicious Activity identiFication at the Edge using Fuzzy Decision Making},
+           journal = {arXiv},
+           year = Sep 2019,
+           volume = {-1},
+           note = {Computer Science - Computer Vision and Pattern Recognition},
+          }
+  
+#+end_src
+
+* References
+  :PROPERTIES:
+  :UNNUMBERED: t
+  :END:
+  #+LaTeX: \printbibliography[heading=none]

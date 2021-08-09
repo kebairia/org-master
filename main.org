@@ -1,0 +1,82 @@
+#+TITLE:            Serverless Edge Computing
+#+SUBTITLE:         Suspicious behavior detection using Deep Learning
+ 
+#+LATEX_CLASS:      mimosis
+#+latex_header:     \KOMAoptions{headings=small,fontsize=12,DIV=12}
+#+SETUPFILE:        ./lib/thesis.setup
+#+INCLUDE:          ./lib/gls_ac.setup
+#+INCLUDE:          ./lib/code.inc
+#+CALL:             init()
+#+EXCLUDE_TAGS:     journal noexport ignore
+#+EXPORT_FILE_NAME: infra_thesis.pdf
+# ---------------------------------------------------------------------
+#+INCLUDE: "./title.org"
+#+latex_header: \pagenumbering{arabic}
+
+* Introduction
+#+name: code_block
+#+caption: A Code Block using Python
+#+begin_src python :results output :exports both
+  import math
+  def Cap(x):
+      return x.upper()
+  for i in range(4):
+      print("line %d"%(i),end=' ')
+  print()
+  print(Cap("Hello"))
+#+end_src
+* Video management systems
+* IOT, Cloud Computing, Edge and Fog computing                     :noexport:
+** IOT 
+** Cloud Computing & IOT
+** Edge & Fog computing
+* Edge and Fog computing on VMS                                    :noexport:
+* Conclusion                                                       :noexport:
+* Introduction                                             :ARCHIVE:noexport:
+
+** Equation and tables
+
+#+name: mytable
+
+#+caption: testing table
+| name     | another |
+|----------+---------|
+| Kebairia | Zakaria |
+|----------+---------|
+| 523.6    | Hello   |
+|----------+---------|
+- this is a reference for the code block ref:code_block
+- this is a reference for the table ref:mytable
+
+#+begin_export latex
+%% \listoffigures
+%% \listoftables
+\printglossaries
+\appendix
+#+end_export
+#+begin_export latex
+ \bibliographystyle{unsrt}
+ \bibliography{./lib/refs.bib}{}
+#+end_export
+
+* Build :noexport:
+
+# Bind derivatives change variable values *locally* on export.
+
+These two are because I'm defining the title and toc manually using latex, so I don't want org-latex to take care of that.
+#+BIND: org-latex-title-command ""
+#+BIND: org-latex-toc-command ""
+This is so that src code blocks get src highlighting from the minted package.
+#+BIND: org-latex-listings minted
+This beautifies table borders. It will only work if the booktabs package is loaded, which I do in the setup file.
+#+BIND: org-latex-tables-booktabs t
+And this configuration increases the default width of images, so that they are larger and more readable on print.
+#+BIND: org-latex-image-default-width ".97\\linewidth"
+
+* Footnotes
+[fn:1] : just testing the footnote, this is a citation cite:nikouei19_i_safe example, and this is a link to [[https://www.google.com][Google]].
+
+# Local Variables:
+# mode: org
+# org-export-allow-bind-keywords: t
+# End:
