@@ -6,9 +6,9 @@
 - ox-latex
 ** system
 - Linux 
-  - Arch-based (Artix, Manjaro, Parabola): pacman -S texlive-most texlive-lang
-  - Debian-based (Ubuntu/Linux Mint): apt-get install texlive-full
-  - Some distros (like Void) use tlmgr to install TeX packages instead of the main package manager.
+  - Arch-based (Artix, Manjaro, Parabola): ~pacman -S texlive-most texlive-lang~
+  - Debian-based (Ubuntu/Linux Mint): ~apt-get install texlive-full~
+  - Some distros (like Void) use *tlmgr* to install TeX packages instead of the main package manager.
 - Windows: [[https://miktex.org/download/#collapse264][Here]]. (Choose the net install to be able to install all packages.)
 - MacOS: [[https://tug.org/mactex/][Here]]
 
