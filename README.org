@@ -115,3 +115,45 @@
    '(org-export-backends '(ascii beamer html icalendar latex odt)))
  #+end_src
  
+* Main structure of your org file
+#+begin_src org
+  ,#+TITLE:            my org thesis
+  ,#+SUBTITLE:         it is great to use Emacs
+  ,#+LATEX_CLASS:      mimosis
+  ,#+latex_header:     \KOMAoptions{headings=small,fontsize=12,DIV=12}
+  ,#+SETUPFILE:        ./lib/thesis.setup
+  ,#+INCLUDE:          ./lib/gls_ac.setup
+  ,#+INCLUDE:          ./lib/code.inc
+  ,#+CALL:             init()
+  ,#+EXCLUDE_TAGS:     journal noexport ignore
+  ,#+EXPORT_FILE_NAME: org-master.pdf
+  # ---------------------------------------------------------------------
+  ,#+INCLUDE: "./title.org"
+  ,#+latex_header: \pagenumbering{arabic}
+  
+  ,#+begin_export latex
+   \listoffigures
+   \listoftables
+  \printglossaries
+  \appendix
+  ,#+end_export
+  ,#+begin_export latex
+   \bibliographystyle{unsrt}
+   \bibliography{./lib/refs.bib}{}
+  ,#+end_export
+  
+  
+  ,* Build :noexport:
+  
+  # Bind derivatives change variable values *locally* on export.
+  
+  These two are because I'm defining the title and toc manually using latex, so I don't want org-latex to take care of that.
+  ,#+BIND: org-latex-title-command ""
+  ,#+BIND: org-latex-toc-command ""
+  This is so that src code blocks get src highlighting from the minted package.
+  ,#+BIND: org-latex-listings minted
+  This beautifies table borders. It will only work if the booktabs package is loaded, which I do in the setup file.
+  ,#+BIND: org-latex-tables-booktabs t
+  And this configuration increases the default width of images, so that they are larger and more readable on print.
+  ,#+BIND: org-latex-image-default-width ".97\\linewidth"
+#+end_src
