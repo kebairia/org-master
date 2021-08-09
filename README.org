@@ -1,1 +1,117 @@
-main.org
+* 
+* Dependencies
+** Emacs packages
+- [[https://orgmode.org/][org]]
+- [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] 
+- ox-latex
+** system
+- Linux 
+  - Arch-based (Artix, Manjaro, Parabola): pacman -S texlive-most texlive-lang
+  - Debian-based (Ubuntu/Linux Mint): apt-get install texlive-full
+  - Some distros (like Void) use tlmgr to install TeX packages instead of the main package manager.
+- Windows: [[https://miktex.org/download/#collapse264][Here]]. (Choose the net install to be able to install all packages.)
+- MacOS: [[https://tug.org/mactex/][Here]]
+
+** Files and Libraries
+- [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]]
+* Configuration
+** org 
+*** Babel
+   #+BEGIN_SRC emacs-lisp
+     (eval-after-load "org"
+       (use-package ob-async
+         :ensure t
+         :init (require 'ob-async)))
+     (setq org-confirm-babel-evaluate nil
+           org-src-fontify-natively t
+           org-confirm-babel-evaluate nil
+           org-src-tab-acts-natively t)
+     (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((python . t)
+        (shell . t)
+        (emacs-lisp . t)
+        (R . t)
+        ))
+   #+END_SRC
+** org ref
+#+begin_src emacs-lisp
+  (use-package org-ref
+    :config
+    (setq reftex-default-bibliography '("/path/to/your/bibliography"))
+    ;; see org-ref for use of these variables
+    (setq org-ref-bibliography-notes "/path/to/your/bib/notes"
+          org-ref-default-bibliography '("/path/to/your/bibliography")
+          org-ref-pdf-directory "/path/to/your/papers"
+          bibtex-dialect                    'biblatex
+          ;; Optimize for 80 character frame display
+          bibtex-completion-display-formats
+          '((t . "${title:46} ${author:20} ${year:4} ${=type=:3}${=has-pdf=:1}${=has-note=:1}"))
+          bibtex-completion-bibliography   "/path/to/your/bibliography"
+          bibtex-completion-library-path    "/path/to/your/bib/notes"
+          bibtex-completion-pdf-symbol ""
+          bibtex-completion-notes-symbol ""
+          ))
+#+end_src
+** Latex
+*** classes
+ #+begin_src emacs-lisp
+   (with-eval-after-load 'ox-latex
+     (add-to-list 'org-latex-classes
+                  '("elsarticle"
+                    "\\documentclass{elsarticle}
+      [NO-DEFAULT-PACKAGES]
+      [PACKAGES]
+      [EXTRA]"
+                    ("\\section{%s}" . "\\section*{%s}")
+                    ("\\subsection{%s}" . "\\subsection*{%s}")
+                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                    ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                    ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+     (add-to-list 'org-latex-classes
+                  '("mimosis"
+                    "\\documentclass{mimosis}
+      [NO-DEFAULT-PACKAGES]
+      [PACKAGES]
+      [EXTRA]
+     \\newcommand{\\mboxparagraph}[1]{\\paragraph{#1}\\mbox{}\\\\}
+     \\newcommand{\\mboxsubparagraph}[1]{\\subparagraph{#1}\\mbox{}\\\\}"
+                    ("\\chapter{%s}" . "\\chapter*{%s}")
+                    ("\\section{%s}" . "\\section*{%s}")
+                    ("\\subsection{%s}" . "\\subsection*{%s}")
+                    ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                    ("\\mboxparagraph{%s}" . "\\mboxparagraph*{%s}")
+                    ("\\mboxsubparagraph{%s}" . "\\mboxsubparagraph*{%s}")))
+   
+     (add-to-list 'org-latex-classes
+                  '( "koma-article"
+                     "\\documentclass{scrartcl}"
+                     ( "\\section{%s}" . "\\section*{%s}" )
+                     ( "\\subsection{%s}" . "\\subsection*{%s}" )
+                     ( "\\subsubsection{%s}" . "\\subsubsection*{%s}" )
+                     ( "\\paragraph{%s}" . "\\paragraph*{%s}" )
+                     ( "\\subparagraph{%s}" . "\\subparagraph*{%s}" )))
+     )
+ #+end_src
+*** minted 
+#+begin_src emacs-lisp
+  ;; Coloured LaTeX using Minted
+  (setq org-latex-listings 'minted
+        org-latex-packages-alist '(("" "minted"))
+        org-latex-pdf-process
+        '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -bibtex -output-directory=%o -f %f"))
+#+end_src
+*** syntax highlighting, babel and other configs
+#+begin_src emacs-lisp
+  ;; syntex-highlighting
+  (use-package htmlize)
+  ;;Don’t include a footer...etc in exported HTML document.
+  (setq org-html-postamble nil)
+  (setq org-src-window-setup 'current-window)
+  
+  (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
+  (add-hook 'org-mode-hook 'org-display-inline-images)
+  (custom-set-variables
+   '(org-export-backends '(ascii beamer html icalendar latex odt)))
+ #+end_src
+ 
