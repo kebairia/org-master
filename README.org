@@ -1,4 +1,6 @@
 * Screenshots 
+** Table of content 
+[[file:img/toc.png]]
 **  Chapter, code and other things
 [[file:img/intro.png]]
 ** Glossary
