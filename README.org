@@ -1,4 +1,10 @@
-* 
+* Screenshots 
+**  Chapter, code and other things
+[[file:img/intro.png]]
+** Glossary
+[[file:img/gls.png]]
+** Bibliography
+[[file:img/bib.png]]
 * Dependencies
 ** Emacs packages
 - [[https://orgmode.org/][org]]
