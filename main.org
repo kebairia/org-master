@@ -9,7 +9,7 @@
 #+EXPORT_FILE_NAME: org-master.pdf
 # ---------------------------------------------------------------------
 #+latex_header: \pagenumbering{arabic}
-#+INCLUDE: "./ack/ack.org"
+#+INCLUDE: "./chps/ack/ack.org"
 
 * Introduction
 *This is my personal configuration of [[https://orgmode.org/][org-mode]] and [[https://www.gnu.org/software/emacs/][Emacs]] while i was preparing for my *Master thesis*.* the repo is in maintenance state
