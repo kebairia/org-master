@@ -21,8 +21,27 @@
 ** Files and Libraries
 - [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]]
 * Configuration
-** org 
-*** Babel
+1. follow the instruction on the [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] repo on how you can add this library and use it on your project
+   - long story short, copy the files mimosis.cls and bibliography-mimosis.tex on your root project directory
+2. call the setupfile using the ~#+setupfile:~ keyword, in our case here:
+   #+begin_src org
+     ,#+setupfile: ./lib/thesis.setup
+   #+end_src
+   - this file contain all the configuration i used in my org-master, you can modify it by yourself and add any extra configuration you see fit.
+3. add *org*, *org-ref* and *latex* configuration to your init.el, (this is the emacs's configuration file), you can use my own [[id: 532ceecf-3147-4f44-a73a-cf4a0fbd272e][configuration]]
+4. ~./lib/code.inc~: contain function for cleaning, exporting and building, i use them throughout my work using the keyword ~#+CALL~ 
+   - an example for that is when i used the ~init()~ function to clean my root directory.
+   - first include the ~./lib/code.inc~ file, then call whatever function you want.
+     #+begin_src org
+       ,#+INCLUDE:          ./lib/code.inc
+       ,#+CALL:             init()
+     #+end_src
+** Emacs configuration
+:PROPERTIES:
+:ID:       532ceecf-3147-4f44-a73a-cf4a0fbd272e
+:END:
+*** org 
+**** Babel
    #+BEGIN_SRC emacs-lisp
      (eval-after-load "org"
        (use-package ob-async
@@ -40,7 +59,7 @@
         (R . t)
         ))
    #+END_SRC
-** org ref
+*** org ref
 #+begin_src emacs-lisp
   (use-package org-ref
     :config
@@ -59,8 +78,8 @@
           bibtex-completion-notes-symbol ""
           ))
 #+end_src
-** Latex
-*** classes
+*** Latex
+**** classes
  #+begin_src emacs-lisp
    (with-eval-after-load 'ox-latex
      (add-to-list 'org-latex-classes
@@ -99,7 +118,7 @@
                      ( "\\subparagraph{%s}" . "\\subparagraph*{%s}" )))
      )
  #+end_src
-*** minted 
+**** minted 
 #+begin_src emacs-lisp
   ;; Coloured LaTeX using Minted
   (setq org-latex-listings 'minted
@@ -107,7 +126,7 @@
         org-latex-pdf-process
         '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -bibtex -output-directory=%o -f %f"))
 #+end_src
-*** syntax highlighting, babel and other configs
+**** syntax highlighting, babel and other configs
 #+begin_src emacs-lisp
   ;; syntex-highlighting
   (use-package htmlize)
