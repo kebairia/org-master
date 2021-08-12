@@ -1,9 +1,0 @@
-#  -*- mode: org; -*-
-
-#+latex_header: \pagenumbering{roman}
-#+latex_header: \section*{Abstract}
-#+latex_header: \addcontentsline{toc}{section}{Abstract}
-#+latex_header: \clearpage
-#+begin_abstract 
-This is the Abstract
-#+end_abstract 

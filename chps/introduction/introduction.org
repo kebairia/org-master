@@ -1,1 +1,31 @@
+#+TITLE: An introduction
 
+* Introduction                                                       :ignore:
+#+name: mytable
+#+caption: Testing table
+|------------+-------------------------|
+| *Package*  | *Purpose*                 |
+|------------+-------------------------|
+| math       | for math and other      |
+| matplotlib | for ploting with python |
+|------------+-------------------------|
+- this is a reference for the table ref:mytable
+  
+** Glossaries and Acronyms 
+- this is gls:fog and this is gls:edge
+A gls:computer is good for computing. Gls:computer is capitalized.
+We can also use a bunch of glspl:computer to make a cluster. Glspl:computer are the wave of the future. Don't forget what a ac:tla is.
+
+monetarily babysitter's niggards Kitchener adaptable babbler's madden protectorate's
+
+repelled seraph fleecing Hutton USN gls:real [fn:1]attentions stylishly filamentous bedpost's edging
+
+parer's blessedly Rock rewrite's fingernail's supervening cannon's gls:latex Hicks's Delawarean
+
+tappets campaniles Ill Olav's semblance lumpy discography's runabout's glsdesc:real pillow propagation's
+
+coffee exasperate Taegu's 
+
+* Footnotes
+
+[fn:1] this is just a test 

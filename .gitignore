@@ -2,3 +2,6 @@
 /org-master.*
 !/org-master.pdf
 /_minted-org-master/
+*.aux
+/lib/thesis-red.setup
+/lib/papers/*.pdf

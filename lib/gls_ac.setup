@@ -4,8 +4,31 @@
 #  Glossaries and acronyms setup
 #  Master: Serverless Edge computing
 # -------------------------------------
-#+EXCLUDE_TAGS: journal noexport ignore
-* Description                                                      :noexport:
+* Macros                                                           :noexport:
+#+MACRO: acronym #+latex_header: \newacronym[description={$1}]{$2}{$2}{$3}
+#+MACRO: glossaryentry #+latex_header: \newglossaryentry{$1}{name={$2},description={$3},sort={$4}}
+
+#+latex_header: \usepackage{glossaries}
+#+latex_header: \makeglossaries
+* Glossaries and Acronums                                          :noexport:
+#+begin_export latex
+\newglossaryentry{LaTeX}{%
+  name        = {\LaTeX},
+  description = {A document preparation system},
+  sort        = {LaTeX},
+}
+#+end_export
+
+#+begin_export latex
+\newglossaryentry{Real numbers}{%
+  name        = {$\real$},
+  description = {The set of real numbers},
+  sort        = {Real numbers},
+}
+#+end_export
+{{{glossaryentry(fog,FOG, FOG layer , something )}}}
+
+* Description                                              :noexport:ARCHIVE:
 #  Here is an example acronym definition
 #  #+latex_header_extra: \newacronym{lvm}{LVM}{Logical Volume Manager}
 
@@ -29,24 +52,3 @@
 #  Ac:label  (exports to \Gls{label})
 #  acp:label (exports to \glspl{label})
 #  Acp:label (exports to \Glspl{label})
-* Macros                                                           :noexport:
-#+MACRO: acronym #+latex_header: \newacronym[description={$1}]{$2}{$2}{$3}
-#+MACRO: glossaryentry #+latex_header: \newglossaryentry{$1}{name={$2},description={$3},sort={$4}}
-
-#+latex_header: \usepackage{glossaries}
-#+latex_header: \makeglossaries
-* Glossaries AND Acronyms                                          :noexport:
-- the old way
-#+latex_header_extra: \newglossaryentry{computer}{name=computer,description={A machine}}
-#+latex_header_extra: \newacronym{tla}{TLA}{Three letter acronym}
-- using the Macro
-- *Glossaries*
-#               to use | Render | description                sort
-{{{glossaryentry(latex,\LaTeX,A document preparation system,LaTeX)}}}
-{{{glossaryentry(real,$\real$,The set of Real numbers,Real Numbers)}}}
-{{{glossaryentry(fog,FOG, FOG layer , something )}}}
-{{{glossaryentry(edge,EDGE, An Edge Cloud architecture is used to decentralize (processing) power to the edges (clients/devices) of the networks., something )}}}
-- *Acronyms* 
-#+latex_header_extra: \newacronym{dns}{DNS}{Domaine Name Service}
-#+latex_header_extra: \newacronym{vms}{VMS}{Video Management System}
-#+latex_header_extra: \newacronym{iot}{IOT}{Internet Of Things}

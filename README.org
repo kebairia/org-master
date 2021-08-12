@@ -10,7 +10,7 @@
 * Dependencies
 ** Emacs packages
 - [[https://orgmode.org/][org]]
-- [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] 
+- [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] (i might replace it with org-cite or org-ref-cite "org-refv3" in the future)
 - ox-latex
 ** system
 - Linux 
