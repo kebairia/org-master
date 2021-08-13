@@ -1,12 +1,8 @@
 * Screenshots 
-** Table of content 
-[[file:img/toc.png]]
-**  Chapter, code and other things
-[[file:img/intro.png]]
-** Glossary
-[[file:img/gls.png]]
-** Bibliography
-[[file:img/bib.png]]
+[[file:shots/00.png]]
+[[file:shots/01.png]]
+[[file:shots/02.png]]
+[[file:shots/03.png]]
 * Dependencies
 ** Emacs packages
 - [[https://orgmode.org/][org]]
