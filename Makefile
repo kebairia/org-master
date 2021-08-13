@@ -1,7 +1,10 @@
 .PHONY: clean
 
 build:
-	latexmk
+	latexmk -pv
+
+watch:
+	latexmk -pvc
 
 clean:
-	latexmk -c
+	latexmk -c 

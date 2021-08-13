@@ -1,0 +1,63 @@
+#+TITLE: An introduction
+
+* Introduction     
+This *package* contains a minimal, modern template for writing your autoref:fig:myfig1 and autoref:fig:myplot
+thesis. While originally meant to be used for a Ph.D. thesis, you can
+equally well use it for your honour thesis, bachelor thesis, and so
+on---some adjustments may be necessary, though.
+these are citation cite:Laramee11,Laramee10 and cite:Edelsbrunner02, cite:Edelsbrunner10
+so be autocite:Tufte01
+** Why?
+I was not satisfied with the available templates for and wanted
+to heed the style advice given by people such as Robert Bringhurst cite:Bringhurst12 or Edward R.
+Tufte cite:Tufte90,Tufte01 . While there \emph{are} some packages out 
+there that attempt to emulate these styles, I found them to be either
+too bloated, too playful, or too constraining. This template attempts to
+produce a beautiful look without having to resort to any sort of hacks.
+I hope you like it cite:nikouei19:_i_safe.
+
+** How?
+The package tries to be easy to use. If you are satisfied with the
+default settings, just add =\documentclass{mimosis}= at the beginning of your document.
+This is sufficient to use the class.
+It is possible to build your document using either  or. I personally prefer one of the latter two because they make
+it easier to select proper fonts.
+** Features
+*** Tables
+
+#+caption: Testing table
+#+name: table1
+|--------------+-------------------------|
+| *Package*      | *Purpose*                 |
+|--------------+-------------------------|
+| math         | for math and other      |
+| matplotlib   | for ploting with python |
+| another test | another purpose         |
+|--------------+-------------------------|
+The template automatically imports numerous convenience packages that
+aid in your typesetting process.
+most important ones. Let's briefly discuss some examples below. Please
+refer to the source code for more demonstrations.
+*** images
+#+caption: Testing image
+#+name: fig:myfig1
+[[file:~/dox/wrk/pfe/docs/thesis_infra/figures/Koenigsberg.jpg]]
+*** Equations
+Define new mathematical operators using \verb|\DeclareMathOperator|.
+Some operators are already pre-defined by the template, such as the
+distance between two objects. Please see the template for some examples. 
+%
+Moreover, this template contains a correct differential operator. Use \verb|\diff| to typeset the differential of integrals:
+\begin{equation}\label{eq:equation1}
+  f(u) := \int_{v \in \domain}\dist(u,v)\diff{v}
+\end{equation}
+You can see that, as a courtesy towards most mathematicians, this
+template gives you the possibility to refer to the real numbers 
+and the domain ~$\domain$ of some function. Take a look at the source for
+more examples. By the way, the template comes with spacing fixes for the
+automated placement of brackets.
+and to the equation eqref:eq:equation1
+
+* Footnotes
+
+[fn:1] this is just a test 

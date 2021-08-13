@@ -4,7 +4,7 @@
 #  MY TITLE
 #  Master: Serverless Edge computing
 # -------------------------------------
-* title                                                              :ignore:
+* 1st Page                                                           :ignore:
 #+begin_export latex
 \selectlanguage{ngerman}
 
@@ -25,23 +25,26 @@
 		%
 		\vfill
 		%
-		\begin{large}
-                  vorgelegt von\\
-                  Diplom-Mathematiker\\[0.5cm]
-                  \begin{LARGE}
-                    \textbf{Albrecht Dold}
-                  \end{LARGE}\\[0.5cm]
-                  aus Nu{\ss}bach
-		\end{large}
+		%% \begin{large}
+                %%   vorgelegt von\\
+                %%   Diplom-Mathematiker\\[0.5cm]
+                %%   \begin{LARGE}
+                %%     \textbf{Albrecht Dold}
+                %%   \end{LARGE}\\[0.5cm]
+                %%   aus Nu{\ss}bach
+		%% \end{large}
     %
     \vskip 1cm
     %
     \begin{small}
-      Tag der mündlichen Prüfung: 01.01.1954
+      ESI-SBA(08 Mai 1945) --- \today
     \end{small}
 	\end{center}
 \end{titlepage}
 
+#+end_export
+* 2nd Page                                                           :ignore:
+#+begin_export latex
 \selectlanguage{english}
 
 \begin{titlepage}
@@ -52,23 +55,25 @@
   \begin{center}
     \begin{singlespace*}
       \begin{Huge}
-          Persistent Homology in\\
-          Multivariate Data Visualization\par
+          \textbf{Serverless Edge Computing}\\
+          Suspicious behavior detection using Deep Learning\par
       \end{Huge}
       %
       \vskip 0.25cm
       \emph{by}
       \vskip 0.25cm
       %
-      \textsc{Bastian Alexander Rieck}\par
+      \textsc{Zakaria Kebairia\\
+                      \&\\
+              Alaa Khadraoui}\par
     \end{singlespace*}
   \end{center}
   %
   \vfill
   %
   \begin{singlespace*}
-    Supervisors:            Prof.\,Dr.\,Heike Leitte\\
-    \phantom{Supervisors:}  Prof.\,Dr.\,Michael Gertz
+    Supervisors:            Prof.\,Dr.\,Abdelatif Rahmoun\\
+    \phantom{Supervisors:}  Dr.\,Hamdane Bensenane
   \end{singlespace*}
 \end{titlepage}
 
