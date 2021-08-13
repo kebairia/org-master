@@ -20,6 +20,21 @@
 #+end_export
 
 #+begin_export latex
+\newglossaryentry{xelatex}{%
+  name        = {\XeLaTex},
+  description = {An All in one \LaTeX compiler},
+  sort        = {LaTeX},
+}
+#+end_export
+
+#+begin_export latex
+\newglossaryentry{lualatex}{%
+  name        = {\LuaLaTex},
+  description = {Another \LaTeX compiler},
+  sort        = {LaTeX},
+}
+#+end_export
+#+begin_export latex
 \newglossaryentry{Real numbers}{%
   name        = {$\real$},
   description = {The set of real numbers},

@@ -142,6 +142,9 @@
    '(org-export-backends '(ascii beamer html icalendar latex odt)))
  #+end_src
  
+* Building 
+- use ~make build~ to build the .pdf file, ~make clean~ to clean the temp files, ~make watch~ to sync your modification with the preview using your pdf viewr
+  you can specify your pdf viewr application in the [[file:latexmkrc::11]] file
 * Main structure of your org file
 #+begin_src org
   ,#+TITLE:            my org thesis

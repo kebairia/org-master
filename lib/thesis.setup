@@ -8,13 +8,14 @@
 #+MACRO: newline @@latex:\hspace{0pt}\\@@ @@html:<br>@@
 #+MACRO: fourstar @@latex:\bigskip{\centering\color{RoyalBlue}\FourStar\par}\bigskip@@
 #+MACRO: clearpage @@latex:\clearpage@@@@odt:<text:p text:style-name="PageBreak"/>@@
+#+MACRO: circle @@latex:\newcommand{\tikzcircle}[2][red,fill=BrickRed]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%@@
 
 ** Options
 # #+OPTIONS: toc:2  H:4 tags:nil
 
 * LaTeX Export Headers and Options :noexport:
 ** latex compiler
-#+latex_compiler: xelatex
+#+latex_compiler: lualatex
 
 ** later
 *** Floating images configuration
@@ -115,11 +116,28 @@ Fine tuning of spacing between paragraphs. See [[https://tex.stackexchange.com/q
 I reduce the size of tables so that longer tables can still fit into an A4.
 # #+latex_header: \usepackage{floatrow}
 # #+latex_header: \floatsetup[table]{font={footnotesize,sf},capposition=top}
-
 *** Scrhack
 
 This package fixes some incompatibility errors between KOMAScript and other packages (namely minted). It has to be loaded at the  end.
 #+latex_header: \usepackage{scrhack}
+
+** TODO TikZ & pgfplots
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usepackage{pgfplots}
+#+latex_header: \pgfplotsset{compat=1.12}
+#+latex_header: 
+#+latex_header: % Permits accessing the smallest and largest x value of a plot
+#+latex_header: \makeatletter
+#+latex_header:   \newcommand{\pgfplotsxmin}{\pgfplots@xmin}
+#+latex_header:   \newcommand{\pgfplotsxmax}{\pgfplots@xmax}
+#+latex_header: \makeatother
+#+latex_header: 
+#+latex_header: % Permits accessing the smallest and largest y value of a plot
+#+latex_header: \makeatletter
+#+latex_header:   \newcommand{\pgfplotsymin}{\pgfplots@ymin}
+#+latex_header:   \newcommand{\pgfplotsymax}{\pgfplots@ymax}
+#+latex_header: \makeatother
+
 
 ** Geometry
 
@@ -149,33 +167,59 @@ See more information [[https://tex.stackexchange.com/questions/68516/avoid-that-
 #+latex_header:   detect-weight        = true,
 #+latex_header:   detect-inline-weight = math,
 #+latex_header: }
-** Colors 
-#+latex_header: \usepackage[%
-#+latex_header:   colorlinks = true,
-#+latex_header:   citecolor  = RoyalBlue,
-#+latex_header:   linkcolor  = RoyalBlue,
-#+latex_header:   urlcolor   = RoyalBlue,
-#+latex_header:   unicode,
-#+latex_header:   ]{hyperref}
-#+latex_header: 
-#+latex_header: \usepackage{bookmark}
-
-** COMMENT Bibliography
+** Colors [Hyperref]
 # #+latex_header: \usepackage[%
-# #+latex_header:   autocite     = plain,
-# #+latex_header:   backend      = biber,
-# #+latex_header:   doi          = true,
-# #+latex_header:   url          = true,
-# #+latex_header:   giveninits   = true,
-# #+latex_header:   hyperref     = true,
-# #+latex_header:   maxbibnames  = 99,
-# #+latex_header:   maxcitenames = 99,
-# #+latex_header:   sortcites    = true,
-# #+latex_header:   style        = numeric,
-# #+latex_header:   ]{biblatex}
+# #+latex_header:   colorlinks = true,
+# #+latex_header:   citecolor  = RoyalBlue,
+# #+latex_header:   linkcolor  = RoyalBlue,
+# #+latex_header:   urlcolor   = RoyalBlue,
+# #+latex_header:   unicode,
+# #+latex_header:   ]{hyperref}
 # #+latex_header: 
-# #+latex_header: \input{bibliography-mimosis}
-# # #+latex_header: \addbibresource{refs.bib}
+# #+latex_header: \usepackage{bookmark}
+
+** Bibliography
+- Style
+#+latex_header: \usepackage[%
+#+latex_header:   autocite     = plain,
+#+latex_header:   backend      = biber,
+#+latex_header:   doi          = true,
+#+latex_header:   url          = true,
+#+latex_header:   giveninits   = true,
+#+latex_header:   hyperref     = true,
+#+latex_header:   maxbibnames  = 99,
+#+latex_header:   maxcitenames = 99,
+#+latex_header:   sortcites    = true,
+#+latex_header:   style        = numeric,
+#+latex_header:   ]{biblatex}
+#+latex_header: 
+#+latex_header: \input{bibliography-mimosis}
+
+# #+latex_header: \addbibresource{refs.bib}
+# #+latex_header: \bibliography{./lib/refs}
+
+And fix the andothers to show et al in English as well:
+# #+latex_header: \DefineBibliographyStrings{english}{andothers={\textit{et\, al\adddot}}} 
+# #+latex_header:\DefineBibliographyStrings{english}{and={\textit{and}}}} 
+
+Remove ISSN, DOI and URL to shorten the bibliography.
+#+latex_header: \AtEveryBibitem{%
+#+latex_header:   \clearfield{urlyear}
+#+latex_header:   \clearfield{urlmonth}
+#+latex_header:   \clearfield{note}
+#+latex_header:  \clearfield{issn} % Remove issn
+doi is usefull, so i kept it 
+# #+latex_header:  \clearfield{doi} % Remove doi
+#+latex_header: \ifentrytype{online}{}{% Remove url except for @online
+#+latex_header:   \clearfield{url}
+#+latex_header: }
+#+latex_header: }
+
+And increase the spacing between the entries, as per default they are too small.
+#+latex_header: \setlength\bibitemsep{1.1\itemsep}
+
+Also reduce the font-size
+#+latex_header: \renewcommand*{\bibfont}{\small}
 
 ** Fonts
 #+latex_header: \usepackage[sf,scaled=0.9]{quattrocento}
@@ -200,7 +244,7 @@ The following commands make chapter numbers RoyalBlue, which look like the Donde
 #+latex_header: \renewcommand\@seccntformat[1]{\color{RoyalBlue} {\csname the#1\endcsname}\hspace{0.3em}}
 #+latex_header: \makeatother
 
-** COMMENT Minted
+** Minted
 
 The minted package is used for highlighting source code.
 #+latex_header: \usepackage{listings}

@@ -1,7 +1,11 @@
-
-/org-master.*
-!/org-master.pdf
-/_minted-org-master/
+/.later/
+/infra_thesis.*
+!/infra_thesis.tex
+lib/*
+!/lib/code.inc
+!/lib/gls_ac.setup
+!/lib/thesis.setup
+!/lib/refs.bib
+/bibexport.bib
+/_minted-*
 *.aux
-/lib/thesis-red.setup
-/lib/papers/*.pdf

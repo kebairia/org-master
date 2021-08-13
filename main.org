@@ -1,68 +1,90 @@
-#+TITLE:            org-master using org mode and emacs
+# ---------------------------------------------------------------------
 #+LATEX_CLASS:      mimosis
-#+latex_header:     \KOMAoptions{headings=small,fontsize=12,DIV=12}
+#+LATEX_HEADER:     \KOMAoptions{headings=small,fontsize=12,DIV=12}
 #+SETUPFILE:        ./lib/thesis.setup
 #+INCLUDE:          ./lib/gls_ac.setup
 #+INCLUDE:          ./lib/code.inc
 #+CALL:             init()
-#+EXCLUDE_TAGS:     journal noexport ignore
-#+EXPORT_FILE_NAME: org-master.pdf
+#+EXCLUDE_TAGS:     journal noexport
+#+EXPORT_FILE_NAME: infra_thesis.pdf
+#+LaTeX_HEADER: \bibliography{./lib/refs}
 # ---------------------------------------------------------------------
+
+* Frontmater                                                         :ignore:
+#+BEGIN_EXPORT latex
+\frontmatter
+#+END_EXPORT
+
+#+include: ./chps/title.org
+#+include: ./chps/abs.org
+#+include: ./chps/ack.org
+
+* Mainmatter                                                         :ignore:
+#+begin_comment
+
+The table of contents is where you list the chapters and major sections of your dissertation, along with their page numbers.
+A clear and well-formatted contents page is essential as it indicates a quality paper is to follow.
+
+The table of contents belongs between the abstract and the introduction. The maximum length should be two pages.
+[[https://www.scribbr.com/dissertation/table-of-contents/][Dissertation table of contents]]
+#+end_comment
+#+BEGIN_EXPORT latex
+\tableofcontents
+\mainmatter
+#+END_EXPORT
 #+latex_header: \pagenumbering{arabic}
-#+INCLUDE: "./chps/ack/ack.org"
 
-* Introduction
-*This is my personal configuration of [[https://orgmode.org/][org-mode]] and [[https://www.gnu.org/software/emacs/][Emacs]] while i was preparing for my *Master thesis*.* the repo is in maintenance state
-- this is a citation cite:nikouei19_i_safe for a paper using [[https://github.com/jkitchin/org-ref][org-ref]], another one cite:nikouei19_decen_smart_surveil_micros_platf
-- you also use the wonderful org-ref utility to manage your glossaries and acronyms, which is great :)
-- this is an acronym for ac:computer and ac:latex, you can see the raw document of the [[file:main.org]] to see the syntax used here.
-- i use [[https://www.emacswiki.org/emacs/FlySpell][flyspell]] for spell checking 
-#+name: code_block
-#+caption: A Code Block using Python
-#+begin_src python :results output :exports both
-  import math
-  def Cap(x):
-      return x.upper()
-  for i in range(4):
-      print("line %d"%(i),end=' ')
-  print()
-  print(Cap("Hello"))
-#+end_src
-** Equation and tables
+* Introduction                                                       :ignore:
+:PROPERTIES:
+:ID:       introduction
+:END:
+#+include: ./chps/intro.org
 
-#+name: mytable
-
-#+caption: testing table
-| name     | another |
-|----------+---------|
-| Kebairia | Zakaria |
-|----------+---------|
-| 523.6    | Hello   |
-|----------+---------|
-- this is a reference for the code block ref:code_block
-- this is a reference for the table ref:mytable
-
+* Backmatter :ignore:
 #+begin_export latex
-%% \listoffigures
-%% \listoftables
-\printglossaries
-\appendix
-#+end_export
-#+begin_export latex
- \bibliographystyle{unsrt}
- \bibliography{./lib/refs.bib}{}
 #+end_export
 
-* Build :noexport:
+#+BEGIN_EXPORT latex
+% This ensures that the subsequent sections are being included as root
+% items in the bookmark structure of your PDF reader.
+\bookmarksetup{startatroot}
+\backmatter
+\begingroup
+    \let\clearpage\relax
+    \glsaddall
+    \printglossary[type=\acronymtype]
+    \newpage
+    \printglossary
+\endgroup
+\printindex
+#+END_EXPORT
 
-# Bind derivatives change variable values *locally* on export.
+* Appendix                                                           :ignore:
+#+latex: \appendix
+* Bibliography                                                       :ignore:
+#+begin_export latex
+\printbibliography
+%% \bibliographystyle{unsrt}
+%% \bibliography{./lib/refs}
+#+end_export
+# #+LATEX_HEADER:     \bibliography{./lib/refs}
 
+* Build                                                            :noexport:
+
+Bind derivatives change variable values *locally* on export.
 These two are because I'm defining the title and toc manually using latex, so I don't want org-latex to take care of that.
 #+BIND: org-latex-title-command ""
-#+BIND: org-latex-toc-command ""
-This is so that src code blocks get src highlighting from the minted package.
+#+BIND: org-latex-toc-command " "
+# This is so that src code blocks get src highlighting from the minted package.
 #+BIND: org-latex-listings minted
 This beautifies table borders. It will only work if the booktabs package is loaded, which I do in the setup file.
 #+BIND: org-latex-tables-booktabs t
 And this configuration increases the default width of images, so that they are larger and more readable on print.
 #+BIND: org-latex-image-default-width ".97\\linewidth"
+put caption above the table
+#+BIND: org-export-latex-table-caption-above nil
+
+# Local Variables:
+# mode: org
+# org-export-allow-bind-keywords: t
+# End:
