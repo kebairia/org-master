@@ -1,6 +1,6 @@
 # ---------------------------------------------------------------------
 #+LATEX_CLASS:      mimosis
- # #+LATEX_HEADER:     \KOMAoptions{headings=normal,fontsize=12,DIV=12}
+# #+LATEX_HEADER:     \KOMAoptions{headings=normal,fontsize=12,DIV=12}
 
 #+SETUPFILE:        ./lib/thesis.setup
 #+INCLUDE:          ./lib/gls_ac.setup
@@ -10,7 +10,7 @@
 # ---------------------------------------------------------------------
 #+STARTUP:          content showstars indent
 #+EXCLUDE_TAGS:     journal noexport
-#+EXPORT_FILE_NAME: master_thesis.pdf
+#+EXPORT_FILE_NAME: org_master.pdf
 #+ARCHIVE:          ~/dox/wrk/pfe/docs/thesis_infra/thesis.archive.org
 # ---------------------------------------------------------------------
 

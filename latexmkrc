@@ -1,4 +1,4 @@
-@default_files = ('infra_thesis.tex');
+@default_files = ('org_master.tex');
 
 add_cus_dep( 'acn', 'acr', 0, 'makeglossaries' );
 add_cus_dep( 'glo', 'gls', 0, 'makeglossaries' );
@@ -8,7 +8,7 @@ sub makeglossaries {
     return system "makeglossaries -d '$path' '$name'";
 }
 
-$pdf_previewer = 'start zathura';
+$pdf_previewer = 'zathura';
 $lualatex = 'lualatex  %O  --shell-escape %S -f';
 $pdf_mode = 4;
 $clean_ext = "%R.acn %R.acr %R.alg %R.aux %R.auxlock %R.bak %R.bbl %R.blg %R.dvi %R.fls %R.glg %R.glo %R.gls %R.idx %R.ist %R.ilg %R.ind %R.log %R.out  %R.ps %R.sav %R.swp %R.toc %R.run.xml %R-blx.bib %R_latexmk %R~ %R.pgf-plot.%R Figures/External/"
