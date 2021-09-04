@@ -5,7 +5,15 @@
 [[file:shots/03.png]]
 * Dependencies
 ** Emacs packages
+- you can use the any emacs's package manager you want, but i prefer using [[https://github.com/raxod502/straight.el][straight.el]].
+  #+begin_src emacs-lisp
+    (straight-use-package 'org)
+    (straight-use-package 'org-contrib)
+    (straight-use-package 'org-ref)
+  #+end_src
+  and then 
 - [[https://orgmode.org/][org]]
+- [[https://github.com/org-mode/contrib][org-contrib]]
 - [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] (i might replace it with org-cite or org-ref-cite "org-refv3" in the future)
 - ox-latex
 ** system
@@ -26,7 +34,7 @@
      ,#+setupfile: ./lib/thesis.setup
    #+end_src
    - this file contain all the configuration i used in my org-master, you can modify it by yourself and add any extra configuration you see fit.
-3. add *org*, *org-ref* and *latex* configuration to your init.el, (this is the emacs's configuration file), you can use my own [[id: 532ceecf-3147-4f44-a73a-cf4a0fbd272e][configuration]]
+3. add *org*, *org-ref* and *latex* configuration to your init.el, (this is the emacs's configuration file), you can use my own [[id:emacs-config][configuration]]
 4. ~./lib/code.inc~: contain function for cleaning, exporting and building, i use them throughout my work using the keyword ~#+CALL~ 
    - an example for that is when i used the ~init()~ function to clean my root directory.
    - first include the ~./lib/code.inc~ file, then call whatever function you want.
@@ -36,7 +44,7 @@
      #+end_src
 ** Emacs configuration
 :PROPERTIES:
-:ID:       532ceecf-3147-4f44-a73a-cf4a0fbd272e
+:ID:       emacs-config
 :END:
 *** org 
 **** Babel
