@@ -6,10 +6,25 @@
 #+MACRO: acronym #+latex_header: \newacronym[description={$1}]{$2}{$2}{$3}
 #+MACRO: glossaryentry #+latex_header: \newglossaryentry{$1}{name={$2},description={$3},sort={$4}}
 #+MACRO: newline @@latex:\hspace{0pt}\\@@ @@html:<br>@@
-#+MACRO: fourstar @@latex:\bigskip{\centering\color{RoyalBlue}\FourStar\par}\bigskip@@
+#+MACRO: fourstar @@latex:\bigskip{\centering\color{hd-red}\FourStar\par}\bigskip@@
 #+MACRO: clearpage @@latex:\clearpage@@@@odt:<text:p text:style-name="PageBreak"/>@@
-#+MACRO: circle @@latex:\newcommand{\tikzcircle}[2][red,fill=BrickRed]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%@@
+#+MACRO: cref @@latex:\textsection \ref{$1}@@
+- Shapes "from [[https://tex.stackexchange.com/a/188535][here]]"
+#+LATEX_HEADER: \newrobustcmd*{\mycircle}[1]{\tikz{\filldraw[draw=#1,fill=#1] (0,0) circle [radius=2.2pt];}}
+#+MACRO: circle @@latex:\mycircle{$1}@@
 
+- Macros for formating  ~\part~ 
+#+MACRO: part @@latex: \part[$1]{$1\\ \vspace{1cm}\begin{minipage}[l]{\textwidth}\textnormal{\normalsize\begin{singlespace*}\onehalfspacing@@
+#+MACRO: part_end @@latex:\end{singlespace*}}\end{minipage}}@@
+- Keyboard Macros 
+  This macro still have an issue, it should be aware of the position it start from.
+  because when we force org to indent sections, it forces text also to be indented
+  hence using 100 character as measurement here can produce wrong behavior
+  #+begin_src emacs-lisp :tangle ~/.config/emacs/init.el
+  (fset 'thesis_text_refining
+        (kmacro-lambda-form [kp-1 kp-0 kp-0 ?l ?f ?  ?a return escape] 0 "%d"))
+  (global-set-key (kbd "C-c w") 'thesis_text_refining)
+#+end_src
 ** Options
 # #+OPTIONS: toc:2  H:4 tags:nil
 
