@@ -1,24 +1,29 @@
 # ---------------------------------------------------------------------
 #+LATEX_CLASS:      mimosis
-#+LATEX_HEADER:     \KOMAoptions{headings=small,fontsize=12,DIV=12}
+ # #+LATEX_HEADER:     \KOMAoptions{headings=normal,fontsize=12,DIV=12}
+
 #+SETUPFILE:        ./lib/thesis.setup
 #+INCLUDE:          ./lib/gls_ac.setup
 #+INCLUDE:          ./lib/code.inc
 #+CALL:             init()
+#+LaTeX_HEADER:     \bibliography{./lib/refs}
+# ---------------------------------------------------------------------
+#+STARTUP:          content showstars indent
 #+EXCLUDE_TAGS:     journal noexport
-#+EXPORT_FILE_NAME: infra_thesis.pdf
-#+LaTeX_HEADER: \bibliography{./lib/refs}
+#+EXPORT_FILE_NAME: master_thesis.pdf
+#+ARCHIVE:          ~/dox/wrk/pfe/docs/thesis_infra/thesis.archive.org
 # ---------------------------------------------------------------------
 
 * Frontmater                                                         :ignore:
+
 #+BEGIN_EXPORT latex
 \frontmatter
+\glsenablehyper
 #+END_EXPORT
 
 #+include: ./chps/title.org
 #+include: ./chps/abs.org
 #+include: ./chps/ack.org
-
 * Mainmatter                                                         :ignore:
 #+begin_comment
 
@@ -34,13 +39,51 @@ The table of contents belongs between the abstract and the introduction. The max
 #+END_EXPORT
 #+latex_header: \pagenumbering{arabic}
 
-* Introduction                                                       :ignore:
+* Part I                                                             :ignore:
 :PROPERTIES:
-:ID:       introduction
+:ALT_TITLE: i Prologue
+:END:
+{{{part(Prologue)}}}
+Description for PART I
+chapters.
+{{{part_end}}}
+** Overview                                                        :ignore:
+:PROPERTIES:
+:ID: intro
 :END:
 #+include: ./chps/intro.org
-
-* Backmatter :ignore:
+* Part II                                                            :ignore:
+:PROPERTIES:
+:ALT_TITLE: ii Background
+:END:
+{{{part(Background)}}}
+Description for PART II
+{{{part_end}}}
+** Chapter 2
+:PROPERTIES:
+:ID:       chapter3
+:ALT_TITLE: Chapter 2: IoT, Cloud, Edge and Fog Computing
+:END:
+#+include: ./chps/intro.org
+#+include: ./chps/chp2.org
+* Part III                                                           :ignore:
+:PROPERTIES:
+:ALT_TITLE: iii State of the Art
+:END:
+{{{part(Epilogue)}}}
+Epilogue
+{{{part_end}}}
+** Chapter 3
+:PROPERTIES:
+:ID:       chapter4
+:ALT_TITLE: Chapter 3: VM on Edge Computing
+:END:
+#+include: ./chps/chp3.org
+* Appendix                                                           :ignore:
+#+begin_export latex
+\appendix
+#+end_export
+* Backmatter                                                         :ignore:
 #+begin_export latex
 #+end_export
 
@@ -59,8 +102,6 @@ The table of contents belongs between the abstract and the introduction. The max
 \printindex
 #+END_EXPORT
 
-* Appendix                                                           :ignore:
-#+latex: \appendix
 * Bibliography                                                       :ignore:
 #+begin_export latex
 \printbibliography
@@ -87,4 +128,8 @@ put caption above the table
 # Local Variables:
 # mode: org
 # org-export-allow-bind-keywords: t
+# eval: (setq display-fill-column-indicator-column 100)
+# eval: (display-fill-column-indicator-mode)
+# eval: (org-id-update-id-locations)
+# eval: (flyspell-mode t)
 # End:
