@@ -1,7 +1,7 @@
 # -*- mode: org; -*-
 # Kebairia Zakaria, forked from (Daniel Gomez)
 #  Ph.D. Thesis Org Mode + LaTeX thesis.setup
-* Org Mode Export Options :noexport:
+* Org Mode Export Options                                          :noexport:
 ** Macros
 #+MACRO: acronym #+latex_header: \newacronym[description={$1}]{$2}{$2}{$3}
 #+MACRO: glossaryentry #+latex_header: \newglossaryentry{$1}{name={$2},description={$3},sort={$4}}
@@ -26,12 +26,20 @@
   (global-set-key (kbd "C-c w") 'thesis_text_refining)
 #+end_src
 ** Options
-# #+OPTIONS: toc:2  H:4 tags:nil
+#+OPTIONS: toc:1  H:4 tags:nil
 
-* LaTeX Export Headers and Options :noexport:
+* LaTeX Export Headers and Options                                 :noexport:
 ** latex compiler
 #+latex_compiler: lualatex
+** Colors
 
+#+latex_header: \usepackage{xcolor}
+#+latex_header: 
+#+latex_header: \definecolor{hd-red}   {RGB}{197, 13, 41}
+#+latex_header: \definecolor{hd-brown} {RGB}{ 90, 15, 20}
+#+latex_header: \definecolor{hd-beige} {RGB}{245, 240, 234}
+#+latex_header: \definecolor{hd-yellow}{RGB}{255, 191, 0}
+#+latex_header: \definecolor{hd-blue}  {RGB}{70, 129, 180}
 ** later
 *** Floating images configuration
 
@@ -54,7 +62,15 @@ This package allows setting SI units using the SI macro. It ensures that no line
 *** Hyperref
 - old = BrickRed
 Self-explanatory.
-#+latex_header: \usepackage[colorlinks=true, citecolor=RoyalBlue, linkcolor=RoyalBlue, urlcolor=RoyalBlue]{hyperref}
+# #+latex_header: \usepackage[colorlinks=true, citecolor=hd-red, linkcolor=hd-color, urlcolor=hd-color]{hyperref}
+
+#+latex_header: \RequirePackage[%
+#+latex_header:   colorlinks = true,
+#+latex_header:   citecolor  = hd-red,
+#+latex_header:   linkcolor  = hd-red,
+#+latex_header:   urlcolor   = hd-red,
+#+latex_header:   ]{hyperref}
+#+latex_header: \RequirePackage{bookmark}
 
 *** Bookmarks
 
@@ -131,11 +147,6 @@ Fine tuning of spacing between paragraphs. See [[https://tex.stackexchange.com/q
 I reduce the size of tables so that longer tables can still fit into an A4.
 # #+latex_header: \usepackage{floatrow}
 # #+latex_header: \floatsetup[table]{font={footnotesize,sf},capposition=top}
-*** Scrhack
-
-This package fixes some incompatibility errors between KOMAScript and other packages (namely minted). It has to be loaded at the  end.
-#+latex_header: \usepackage{scrhack}
-
 ** TODO TikZ & pgfplots
 #+latex_header: \usepackage{tikz}
 #+latex_header: \usepackage{pgfplots}
@@ -153,7 +164,6 @@ This package fixes some incompatibility errors between KOMAScript and other pack
 #+latex_header:   \newcommand{\pgfplotsymax}{\pgfplots@ymax}
 #+latex_header: \makeatother
 
-
 ** Geometry
 
 The thesis page size should be 17,21 cm vs 24,41 cm.
@@ -165,6 +175,12 @@ By default,  if a figure consumes 60% of the page it will get its own float-page
 #+latex_header: \renewcommand{\floatpagefraction}{.8}%
 
 See more information [[https://tex.stackexchange.com/questions/68516/avoid-that-figure-gets-its-own-page][here]].
+
+** Paragraphs
+add \S when referencing a chapter or a section
+# #+latex_header: \renewcommand{\sectionautorefname}{\S}
+# #+latex_header: \renewcommand{\subsectionautorefname}{\S}
+# #+latex_header: \renewcommand{\subsubsectionautorefname}{\S}
 
 ** Adjustement
 #+latex_header: \usepackage{metalogo}
@@ -182,17 +198,16 @@ See more information [[https://tex.stackexchange.com/questions/68516/avoid-that-
 #+latex_header:   detect-weight        = true,
 #+latex_header:   detect-inline-weight = math,
 #+latex_header: }
-** Colors [Hyperref]
-# #+latex_header: \usepackage[%
-# #+latex_header:   colorlinks = true,
-# #+latex_header:   citecolor  = RoyalBlue,
-# #+latex_header:   linkcolor  = RoyalBlue,
-# #+latex_header:   urlcolor   = RoyalBlue,
-# #+latex_header:   unicode,
-# #+latex_header:   ]{hyperref}
-# #+latex_header: 
-# #+latex_header: \usepackage{bookmark}
 
+Adding indentation for every first paragraph
+
+#+LaTeX_HEADER: \usepackage{indentfirst}
+#+LaTeX_HEADER: \setlength{\parindent}{0.2cm} % Default is 15pt.
+** TODO COMMENT Acronym & Glossaries
+make acronyms and glossaries clickable again
+# #+begin_export latex
+# \glsenablehyper
+# #+end_export
 ** Bibliography
 - Style
 #+latex_header: \usepackage[%
@@ -234,7 +249,7 @@ And increase the spacing between the entries, as per default they are too small.
 #+latex_header: \setlength\bibitemsep{1.1\itemsep}
 
 Also reduce the font-size
-#+latex_header: \renewcommand*{\bibfont}{\small}
+#+latex_header: \renewcommand*{\bibfont}{\footnotesize}
 
 ** Fonts
 #+latex_header: \usepackage[sf,scaled=0.9]{quattrocento}
@@ -245,19 +260,20 @@ Also reduce the font-size
 #+latex_header:   \usepackage[oldstyle,scale=0.7]{Sudo}
 #+latex_header:   \singlespacing
 #+latex_header: \fi
-#+latex_header: \setmonofont{Sudo}
+# #+latex_header: \setmonofont{Sudo}
+
+*** Improve Part/Chapter font colors and font size
+The following commands make chapter numbers hd-red, which look like the Donders color.
+#+latex_header: \makeatletter
+#+latex_header: \renewcommand{\partformat}{\huge\partname~\color{hd-red}\thepart\autodot}
+#+latex_header: \renewcommand*{\chapterformat}{  \mbox{\chapappifchapterprefix{\nobreakspace}{\color{hd-red}\fontsize{50}{55}\selectfont\thechapter}\autodot\enskip}}
+#+latex_header: \renewcommand\@seccntformat[1]{\color{hd-red} {\csname the#1\endcsname}\hspace{0.3em}}
+#+latex_header: \makeatother
 
 ** Possible Equation improvements
 
 Make the equation numbers follow the chapter, not the whole thesis.
 #+latex_header: \numberwithin{equation}{chapter}
-
-** Improve chapter font colors and font size
-The following commands make chapter numbers RoyalBlue, which look like the Donders color.
-#+latex_header: \makeatletter
-#+latex_header: \renewcommand*{\chapterformat}{  \mbox{\chapappifchapterprefix{\nobreakspace}{\color{RoyalBlue}\fontsize{45}{50}\selectfont\thechapter}\autodot\enskip}}
-#+latex_header: \renewcommand\@seccntformat[1]{\color{RoyalBlue} {\csname the#1\endcsname}\hspace{0.3em}}
-#+latex_header: \makeatother
 
 ** Minted
 
@@ -273,7 +289,7 @@ The minted package is used for highlighting source code.
   - ~linenos~: line numbers
   - ~autogobble~:
   - ~frame=single~: braw a box around the code
-#+latex_header: \setminted{autogobble=true,fontsize=\small,baselinestretch=0.8,breaklines,linenos,frame=single}
+#+latex_header: \setminted{autogobble=true,fontsize=\small,baselinestretch=0.8,breaklines,linenos}
 #+latex_header: \setminted[python]{python3=true,tabsize=4}
 # #+latex_header: \setminted{bgcolor=backcolour}
 - syntax highlighting style: trac
@@ -288,6 +304,11 @@ And reduce the distance between a minted listing and its caption.
 This here is to bring the caption closer to the environment.
 # #+latex_header: \AtEndEnvironment{listing}{\vspace{-2pt}}
 # #+latex_header: \captionsetup{skip=-2pt}
+
+** Scrhack
+
+This package fixes some incompatibility errors between KOMAScript and other packages (namely minted). It has to be loaded at the  end.
+#+latex_header: \usepackage{scrhack}
 
 ** Background cover page
 
