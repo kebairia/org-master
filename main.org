@@ -45,7 +45,6 @@ The table of contents belongs between the abstract and the introduction. The max
 :END:
 {{{part(Prologue)}}}
 Description for PART I
-chapters.
 {{{part_end}}}
 ** Overview                                                        :ignore:
 :PROPERTIES:
@@ -61,11 +60,10 @@ Description for PART II
 {{{part_end}}}
 ** Chapter 2
 :PROPERTIES:
-:ID:       chapter3
-:ALT_TITLE: Chapter 2: IoT, Cloud, Edge and Fog Computing
+:ID:       config
+:ALT_TITLE: 2- Configuration
 :END:
-#+include: ./chps/intro.org
-#+include: ./chps/chp2.org
+#+include: ./chps/chp2/config.org
 * Part III                                                           :ignore:
 :PROPERTIES:
 :ALT_TITLE: iii State of the Art
@@ -75,10 +73,10 @@ Epilogue
 {{{part_end}}}
 ** Chapter 3
 :PROPERTIES:
-:ID:       chapter4
-:ALT_TITLE: Chapter 3: VM on Edge Computing
+:ID:       cons
+:ALT_TITLE: 3- Conclusion
 :END:
-#+include: ./chps/chp3.org
+#+include: ./chps/chp3/cons.org
 * Appendix                                                           :ignore:
 #+begin_export latex
 \appendix
