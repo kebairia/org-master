@@ -11,39 +11,5 @@
 \noindent
 %
 #+end_export
-
-Technological advances of recent years have changed the way research is done. When de-
-scribing complex phenomena, it is now possible to measure and model a myriad of diferent
-aspects pertaining to them. Tis increasing number of variables, however, poses signifcant
-challenges for the visual analysis and interpretation of such multivariate data. Yet, the efective
-visualization of structures in multivariate data is of paramount importance for building mod-
-els, forming hypotheses, and understanding intrinsic properties of the underlying phenomena.
-Tis thesis provides novel visualization techniques that advance the feld of multivariate visual
-data analysis by helping represent and comprehend the structure of high-dimensional data.
-In contrast to approaches that focus on visualizing multivariate data directly or by means of
-their geometrical features, the methods developed in this thesis focus on their topological
-properties. More precisely, these methods provide structural descriptions that are driven by
-persistent homology, a technique from the emerging feld of computational topology.
-Such descriptions are developed in two separate parts of this thesis. Te frst part deals
-with the qualitative visualization of topological features in multivariate data. It presents
-novel visualization methods that directly depict topological information, thus permitting the
-comparison of structural features in a qualitative manner. Te techniques described in this
-part serve as low-dimensional representations that make the otherwise high-dimensional
-topological features accessible. We show how to integrate them into data analysis workfows
-based on clustering in order to obtain more information about the underlying data. Te
-efcacy of such combined workfows is demonstrated by analysing complex multivariate data
-sets from cultural heritage and political science, for example, whose structures are hidden to
-common visualization techniques.
-Te second part of this thesis is concerned with the quantitative visualization of topological
-features. It describes novel methods that measure diferent aspects of multivariate data in
-order to provide quantifable information about them. Here, the topological characteristics
-serve as a feature descriptor. Using these descriptors, the visualization techniques in this part
-focus on augmenting and improving existing data analysis processes. Among others, they
-deal with the visualization of high-dimensional regression models, the visualization of errors
-in embeddings of multivariate data, as well as the assessment and visualization of the results
-of diferent clustering algorithms.
-All the methods presented in this thesis are evaluated and analysed on diferent data sets in
-order to show their robustness. Tis thesis demonstrates that the combination of geometrical
-and topological methods may support, complement, and surpass existing approaches for
-multivariate visual data analysis.
+Put your abstract here
 {{{clearpage}}}

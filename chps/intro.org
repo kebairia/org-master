@@ -1,7 +1,7 @@
 #+TITLE: An introduction
 
 * Introduction     
-This *package* contains a minimal, modern template for writing your autoref:fig:myfig1 and autoref:fig:myplot
+This *package* contains a minimal, modern template for writing your autoref:fig:myfig1
 thesis. While originally meant to be used for a Ph.D. thesis, you can
 equally well use it for your honour thesis, bachelor thesis, and so
 on---some adjustments may be necessary, though.
