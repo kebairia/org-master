@@ -1,43 +1,63 @@
+*This repository is currently under construction.* \\
+
 * Screenshots 
 [[file:shots/00.png]]
 [[file:shots/01.png]]
 [[file:shots/02.png]]
 [[file:shots/03.png]]
 * Dependencies
-** Emacs packages
-- you can use the any emacs's package manager you want, but i prefer using [[https://github.com/raxod502/straight.el][straight.el]].
+** COMMENT Emacs packages
+- you can use any Emacs package manager you want, but i prefer
+   using [[https://github.com/raxod502/straight.el][straight.el]].
   #+begin_src emacs-lisp
     (straight-use-package 'org)
-    (straight-use-package 'org-contrib)
+    
+    ;; installing and configure org-contrib 
+    (use-package org-contrib
+      :config
+      (require 'ox-extra)
+      (ox-extras-activate '(latex-header-blocks ignore-headlines)))
+    ;; installing org-ref
     (straight-use-package 'org-ref)
   #+end_src
   and then 
 - [[https://orgmode.org/][org]]
 - [[https://github.com/org-mode/contrib][org-contrib]]
-- [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] (i might replace it with org-cite or org-ref-cite "org-refv3" in the future)
+- [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] (i might replace it with org-cite or
+  org-ref-cite "org-refv3" in the future)
 - ox-latex
 ** system
 - Linux 
   - Arch-based (Artix, Manjaro, Parabola): ~pacman -S texlive-most texlive-lang~
   - Debian-based (Ubuntu/Linux Mint): ~apt-get install texlive-full~
-  - Some distros (like Void) use *tlmgr* to install TeX packages instead of the main package manager.
-- Windows: [[https://miktex.org/download/#collapse264][Here]]. (Choose the net install to be able to install all packages.)
+  - Some distros (like Void) use *tlmgr* to install TeX packages instead
+     of the main package manager.
+- Windows: [[https://miktex.org/download/#collapse264][Here]]. (Choose the net install to be able to install all
+  packages.)
 - MacOS: [[https://tug.org/mactex/][Here]]
 
 ** Files and Libraries
 - [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]]
 * Configuration
-1. follow the instruction on the [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] repo on how you can add this library and use it on your project
-   - long story short, copy the files mimosis.cls and bibliography-mimosis.tex on your root project directory
+1. follow the instruction on the [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] repo on how you can add
+   this library and use it on your project
+   - long story short, copy the files ~mimosis.cls~ and
+     ~bibliography-mimosis.tex~ on your root project directory
 2. call the setupfile using the ~#+setupfile:~ keyword, in our case here:
    #+begin_src org
-     ,#+setupfile: ./lib/thesis.setup
+     ,#+SETUPFILE: ./lib/thesis.setup
    #+end_src
-   - this file contain all the configuration i used in my org-master, you can modify it by yourself and add any extra configuration you see fit.
-3. add *org*, *org-ref* and *latex* configuration to your init.el, (this is the emacs's configuration file), you can use my own [[id:emacs-config][configuration]]
-4. ~./lib/code.inc~: contain function for cleaning, exporting and building, i use them throughout my work using the keyword ~#+CALL~ 
-   - an example for that is when i used the ~init()~ function to clean my root directory.
-   - first include the ~./lib/code.inc~ file, then call whatever function you want.
+   - this file contain all the configuration i used in my org-master,
+      you can modify it by yourself and add any extra configuration
+      you see fit.
+3. add *org*, *org-ref* and *latex* configuration to your init.el, (this is
+    the emacs's configuration file), you can use my own [[id:emacs-config][configuration]]
+4. ~./lib/code.inc~: contain function for cleaning, exporting and building,
+    i use them throughout my work using the keyword ~#+CALL~ 
+   - an example for that is when i used the ~init()~ function to clean
+     my root directory.
+   - first include the ~./lib/code.inc~ file, then call whatever function
+     you want.
      #+begin_src org
        ,#+INCLUDE:          ./lib/code.inc
        ,#+CALL:             init()
@@ -143,12 +163,13 @@
   (add-hook 'org-babel-after-execute-hook 'org-display-inline-images)
   (add-hook 'org-mode-hook 'org-display-inline-images)
   (custom-set-variables
-   '(org-export-backends '(ascii beamer html icalendar latex odt)))
+   '(org-export-backends '(ascii beamed html calendar latex DOT)))
  #+end_src
  
 * Building 
-- use ~make build~ to build the .pdf file, ~make clean~ to clean the temp files, ~make watch~ to sync your modification with the preview using your pdf viewr
-  you can specify your pdf viewr application in the [[file:latexmkrc::11]] file
+- use ~make build~ to build the .pdf file, ~make clean~ to clean the temp
+  files, ~make watch~ to sync your modification with the preview using your PDF viewer \\
+  you can specify your PDF viewer application in the [[file:latexmkrc::11]] file
 * Main structure of your org file
 #+begin_src org
   ,#+TITLE:            my org thesis
