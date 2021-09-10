@@ -9,3 +9,4 @@ lib/*
 /bibexport.bib
 /_minted-*
 *.aux
+/org_master.*
