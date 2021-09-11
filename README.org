@@ -57,9 +57,8 @@
     (use-package 'org-ref)
   #+end_src
 
-  org-ref-cite "org-refv3" in the future)
 - ox-latex
-** system
+*** system
 - Linux 
   - Arch-based (Artix, Manjaro, Parabola): ~pacman -S texlive-most texlive-lang~
   - Debian-based (Ubuntu/Linux Mint): ~apt-get install texlive-full~
@@ -69,14 +68,14 @@
   packages.)
 - MacOS: [[https://tug.org/mactex/][Here]]
 
-** Files and Libraries
-- [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]]
+*** Files and Libraries
+- [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] 
 * Configuration
 1. follow the instruction on the [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] repo on how you can add
    this library and use it on your project
    - long story short, copy the files ~mimosis.cls~ and
-     ~bibliography-mimosis.tex~ on your root project directory
-2. call the setupfile using the ~#+setupfile:~ keyword, in our case here:
+     ~bibliography-mimosis.tex~ into your root project directory
+2. call the setupfile using the ~#+SETUPFILE:~ keyword, in our case here:
    #+begin_src org
      ,#+SETUPFILE: ./lib/thesis.setup
    #+end_src
