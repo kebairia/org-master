@@ -1,3 +1,4 @@
+#+PROPERTY:  header-args :tangle ./init.el
 *This repository is currently under construction.* \\
 
 * Screenshots 
