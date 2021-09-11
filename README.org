@@ -198,6 +198,19 @@
    '(org-export-backends '(ascii beamed html calendar latex DOT)))
  #+end_src
  
+*** functions
+- idea from [[https://www.lonecpluspluscoder.com/2021/09/07/emacs-enable-multiple-minor-modes-from-major-mode/]["Automatically enabling multiple Emacs minor modes via a major mode hook - The..."]]
+#+begin_src emacs-lisp
+  (defun enable-writing-minor-modes ()
+    "Enable flyspell and visual line mode for calling from mode hooks"
+    (visual-line-mode 1)
+    (flyspell-mode 1))
+#+end_src
+
+#+begin_src emacs-lisp
+  (use-package org
+    :hook (org-mode . enable-writing-minor-modes))
+#+end_src
 * Building 
 - use ~make build~ to build the .pdf file, ~make clean~ to clean the temp
   files, ~make watch~ to sync your modification with the preview using your PDF viewer \\
