@@ -5,25 +5,57 @@
 [[file:shots/01.png]]
 [[file:shots/02.png]]
 [[file:shots/03.png]]
-* Dependencies
-** COMMENT Emacs packages
+* Installation
+** Dependencies
+*** Emacs packages
 - you can use any Emacs package manager you want, but i prefer
    using [[https://github.com/raxod502/straight.el][straight.el]].
+- Straight.el
+#+begin_src emacs-lisp
+  ;;-------------------------
+  ;; MANDATORY PACKAGES
+  ;;-------------------------
+  
+  ;; installing and configure STRAIGHT
+  (defvar bootstrap-version)
+  (let ((bootstrap-file
+         (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+        (bootstrap-version 5))
+    (unless (file-exists-p bootstrap-file)
+      (with-current-buffer
+          (url-retrieve-synchronously
+           "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+           'silent 'inhibit-cookies)
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+    (load bootstrap-file nil 'nomessage))
+  ;; use use-package along with straight
+  (straight-use-package 'use-package)
+  ;; make `use-package` to automatically install all of your packages 
+  ;; without the need for adding `:straight t`.
+  (setq straight-use-package-by-default t)
+#+end_src
+- [[https://orgmode.org/][org]] 
   #+begin_src emacs-lisp
-    (straight-use-package 'org)
-    
-    ;; installing and configure org-contrib 
+    ;; Installing ORG
+    (use-package org)
+  #+end_src
+- [[https://github.com/org-mode/contrib][org-contrib]]
+  here we can see the usefulness of ~straight.el~ packages manager
+  #+begin_src emacs-lisp
+    ;; Installing and configure ORG-CONTRIB 
     (use-package org-contrib
       :config
       (require 'ox-extra)
       (ox-extras-activate '(latex-header-blocks ignore-headlines)))
-    ;; installing org-ref
-    (straight-use-package 'org-ref)
   #+end_src
-  and then 
-- [[https://orgmode.org/][org]]
-- [[https://github.com/org-mode/contrib][org-contrib]]
 - [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] (i might replace it with org-cite or
+  org-ref-cite "org-refv3" in the future)
+  #+begin_src emacs-lisp
+    ;; Installing ORG-REF
+    (use-package 'org-ref)
+  #+end_src
+
   org-ref-cite "org-refv3" in the future)
 - ox-latex
 ** system
