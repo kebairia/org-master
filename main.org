@@ -6,7 +6,7 @@
 #+INCLUDE:          ./lib/gls_ac.setup
 #+INCLUDE:          ./lib/code.inc
 #+CALL:             init()
-#+LaTeX_HEADER:     \bibliography{./lib/refs}
+#+LaTeX_HEADER:     \bibliography{~/org/bib/refs}
 # ---------------------------------------------------------------------
 #+STARTUP:          content showstars indent
 #+EXCLUDE_TAGS:     journal noexport
