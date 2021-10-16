@@ -3,17 +3,19 @@ MAINTAINER ZEKE <zek@kebairia.com>
 
 ENV LANG=C.UTF-8
 RUN xauth \
-&& xauth add artbox/unix:0  MIT-MAGIC-COOKIE-1  52a34e4a8e6ebc256765c76a31a45a84 \
-&& echo "$(cat /etc/os-release)"
-COPY ./emacs_config ./.emacs.d
+    && xauth add artbox/unix:0  MIT-MAGIC-COOKIE-1  38635c3db97233de72489f7f93c42a4b \
+    && echo "$(cat /etc/os-release)"
+COPY ./emacs_config /root/.config/emacs/
 VOLUME ["./figures","/data/figures"]
 VOLUME ["./lib","/data/lib"]
 
 # Update the system
-#RUN apt-get update 
-## Install required packages
-#RUN apt-get install -y wget \
-    #emacs\
+RUN apt-get -y update 
+RUN apt-get install -y git
 
-WORKDIR /data
-ENTRYPOINT ["emacs"]
+
+# WORKDIR /data
+CMD ["emacs","q", "--load", "~/.config/emacs/init.el"]
+# CMD ["emacs"]
+
+
