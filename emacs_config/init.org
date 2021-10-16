@@ -79,12 +79,12 @@ I'm using [[https://github.com/raxod502/straight.el][straight.el]] as my main pa
 #+begin_src emacs-lisp
   ;; load files
   (load "~/.config/emacs/lisp/DEFAULTS.el") 
-  (load "~/.config/emacs/lisp/PACKAGES.el") 
-  (load "~/.config/emacs/lisp/SESSIONS.el") 
-  (load "~/.config/emacs/lisp/BINDINGS.el") 
-  (load "~/.config/emacs/lisp/ORG.el") 
-  (load "~/.config/emacs/lisp/ORG-ROAM.el") 
-  (load "~/.config/emacs/lisp/PYTHON.el") 
+  ;; (load "~/.config/emacs/lisp/PACKAGES.el") 
+  ;; (load "~/.config/emacs/lisp/SESSIONS.el") 
+  ;; (load "~/.config/emacs/lisp/BINDINGS.el") 
+  ;; (load "~/.config/emacs/lisp/ORG.el") 
+  ;; (load "~/.config/emacs/lisp/ORG-ROAM.el") 
+  ;; (load "~/.config/emacs/lisp/PYTHON.el") 
   ;;(load "~/.config/emacs/lisp/MU4E.el") 
   (load "~/.config/emacs/nano/nano.el") 	;
   (load "~/.config/emacs/nano/nano-layout.el") 
