@@ -83,7 +83,7 @@
   #+end_src
 
 - ox-latex
-*** system
+**** system
 - Linux 
   - Arch-based (Artix, Manjaro, Parabola): ~pacman -S texlive-most texlive-lang~
   - Debian-based (Ubuntu/Linux Mint): ~apt-get install texlive-full~
@@ -93,9 +93,9 @@
   packages.)
 - MacOS: [[https://tug.org/mactex/][Here]]
 
-*** Files and Libraries
+**** Files and Libraries
 - [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] 
-* Configuration
+** Configuration
 1. follow the instruction on the [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] repo on how you can add
    this library and use it on your project
    - long story short, copy the files ~mimosis.cls~ and
@@ -119,12 +119,12 @@
        ,#+INCLUDE:          ./lib/code.inc
        ,#+CALL:             init()
      #+end_src
-** Emacs configuration
+*** Emacs configuration
 :PROPERTIES:
 :ID:       emacs-config
 :END:
-*** org 
-**** Babel
+**** org 
+***** Babel
    #+BEGIN_SRC emacs-lisp
      (eval-after-load "org"
        (use-package ob-async
@@ -142,7 +142,7 @@
         (R . t)
         ))
    #+END_SRC
-*** org ref
+**** org ref
 #+begin_src emacs-lisp
   (use-package org-ref
     :config
@@ -161,8 +161,8 @@
           bibtex-completion-notes-symbol ""
           ))
 #+end_src
-*** Latex
-**** classes
+**** Latex
+***** classes
  #+begin_src emacs-lisp
    (with-eval-after-load 'ox-latex
      (add-to-list 'org-latex-classes
@@ -201,7 +201,7 @@
                      ( "\\subparagraph{%s}" . "\\subparagraph*{%s}" )))
      )
  #+end_src
-**** minted 
+***** minted 
 #+begin_src emacs-lisp
   ;; Coloured LaTeX using Minted
   (setq org-latex-listings 'minted
@@ -209,7 +209,7 @@
         org-latex-pdf-process
         '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -bibtex -output-directory=%o -f %f"))
 #+end_src
-**** syntax highlighting, babel and other configs
+***** syntax highlighting, babel and other configs
 #+begin_src emacs-lisp
   ;; syntex-highlighting
   (use-package htmlize)
@@ -223,7 +223,7 @@
    '(org-export-backends '(ascii beamed html calendar latex DOT)))
  #+end_src
  
-*** functions
+**** functions
 - idea from [[https://www.lonecpluspluscoder.com/2021/09/07/emacs-enable-multiple-minor-modes-from-major-mode/]["Automatically enabling multiple Emacs minor modes via a major mode hook - The..."]]
 #+begin_src emacs-lisp
   (defun enable-writing-minor-modes ()
@@ -236,11 +236,11 @@
   (use-package org
     :hook (org-mode . enable-writing-minor-modes))
 #+end_src
-* Building 
+** Building 
 - use ~make build~ to build the .pdf file, ~make clean~ to clean the temp
   files, ~make watch~ to sync your modification with the preview using your PDF viewer \\
   you can specify your PDF viewer application in the [[file:latexmkrc::11]] file
-* Main structure of your org file
+** Main structure of your org file
 #+begin_src org
   ,#+TITLE:            my org thesis
   ,#+SUBTITLE:         it is great to use Emacs
