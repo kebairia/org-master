@@ -1,14 +1,39 @@
 #+PROPERTY:  header-args :tangle ./emacs_config/init.el
-*This repository is currently under construction.* \\
+#+html: <p align="center"><b> This repo still under construction ❗ </b></p>
+#+html: <p align="center">
+#+html: <img src="./files/img/const.png" alt="contruction image" width="80" align="center">
+#+html: </p>
+#+html: <hr>
 
-* Screenshots 
+** Table of Contents
+:PROPERTIES:
+:TOC:      :include all :ignore this
+:END:
+:CONTENTS:
+- [[#Screenshots][Screenshots]]
+- [[#Installation][Installation]]
+  - [[#Dependencies][Dependencies]]
+- [[#Configuration][Configuration]]
+  - [[#Emacs configuration][Emacs configuration]]
+    - [[#org][org]]
+      - [[#Babel][Babel]]
+    - [[#org ref][org ref]]
+    - [[#Latex][Latex]]
+      - [[#classes][classes]]
+      - [[#minted][minted]]
+      - [[#syntax highlighting, babel and other configs][syntax highlighting, babel and other configs]]
+    - [[#functions][functions]]
+- [[#Building][Building]]
+- [[#Main structure of your org file][Main structure of your org file]]
+:END:
+** Screenshots 
 [[file:shots/00.png]]
 [[file:shots/01.png]]
 [[file:shots/02.png]]
 [[file:shots/03.png]]
-* Installation
-** Dependencies
-*** Emacs packages
+** Installation
+*** Dependencies
+**** Emacs packages
 - you can use any Emacs package manager you want, but i prefer
    using [[https://github.com/raxod502/straight.el][straight.el]].
 - Straight.el
