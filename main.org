@@ -1,6 +1,5 @@
 # ---------------------------------------------------------------------
 #+LATEX_CLASS:      mimosis
-# #+LATEX_HEADER:     \KOMAoptions{headings=normal,fontsize=12,DIV=12}
 
 #+SETUPFILE:        ./lib/thesis.setup
 #+INCLUDE:          ./lib/gls_ac.setup
