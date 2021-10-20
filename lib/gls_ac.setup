@@ -6,11 +6,11 @@
 # -------------------------------------
 * Macros                                                           :noexport:
 #+MACRO: acronym #+latex_header: \newacronym[description={$1}]{$2}{$2}{$3}
-#+MACRO: glossaryentry #+latex_header: \newglossaryentry{$1}{name={$2},description={$3},sort={$4}}
+#+MACRO: glossary #+latex_header: \newglossaryentry{$1}{name={$2},description={$3},sort={$4}}
 
 #+latex_header: \usepackage{glossaries}
 #+latex_header: \makeglossaries
-* Glossaries and Acronums                                          :noexport:
+* COMMENT Glossaries and Acronyms                                          :noexport:
 #+begin_export latex
 \newglossaryentry{LaTeX}{%
   name        = {\LaTeX},
@@ -43,6 +43,15 @@
 #+end_export
 {{{glossaryentry(fog,FOG, FOG layer , something )}}}
 
+* Glossaries                                                       :noexport:
+{{{glossary(latex,\LaTeX,A document preparation system,LaTeX)}}}
+* Acronyms                                                         :noexport:
+{{{acronym(Operating System,OS,OS,os)}}} 
+{{{acronym(Internet Protocol,IP,IP,ip)}}}
+{{{acronym(Transmission Control Protocol,TCP,TCP,tcp)}}}
+{{{acronym(Hypertext Transfer Protocol,HTTP,HTTP,http}}}
+{{{acronym(Internet of Things,IoT,IoT,iot)}}}
+ 
 * Description                                              :noexport:ARCHIVE:
 #  Here is an example acronym definition
 #  #+latex_header_extra: \newacronym{lvm}{LVM}{Logical Volume Manager}
