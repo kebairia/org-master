@@ -61,7 +61,7 @@ Description for PART II
 ** Chapter 2
 :PROPERTIES:
 :ID:       config
-:ALT_TITLE: 2- Configuration
+:ALT_TITLE: Configuration
 :END:
 #+include: ./chps/chp2/config.org
 * Part III                                                           :ignore:
@@ -74,13 +74,19 @@ Epilogue
 ** Chapter 3
 :PROPERTIES:
 :ID:       cons
-:ALT_TITLE: 3- Conclusion
+:ALT_TITLE: Conclusion
 :END:
 #+include: ./chps/chp3/cons.org
 * Appendix                                                           :ignore:
 #+begin_export latex
 \appendix
 #+end_export
+** Emacs and Org mode
+:PROPERTIES:
+:ID:       emacs_org
+:ALT_TITLE: Emacs and Org mode
+:END:
+#+include: ./chps/emacs_org-mode.org
 * Backmatter                                                         :ignore:
 #+begin_export latex
 #+end_export
