@@ -39,9 +39,6 @@ aid in your typesetting process.
 most important ones. Let's briefly discuss some examples below. Please
 refer to the source code for more demonstrations.
 *** images
-#+caption: Testing image
-#+name: fig:myfig1
-[[file:~/dox/wrk/pfe/docs/thesis_infra/figures/Koenigsberg.jpg]]
 *** Equations
 Define new mathematical operators using \verb|\DeclareMathOperator|.
 Some operators are already pre-defined by the template, such as the
