@@ -15,7 +15,8 @@ RUN apt-get install -y git
 
 
 # WORKDIR /data
-CMD ["emacs","q", "--load", "~/.config/emacs/init.el"]
+CMD ["emacs","q", "--load", "/root/.config/emacs/init.el"]
 # CMD ["emacs"]
+
 
 
