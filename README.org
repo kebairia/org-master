@@ -1,7 +1,7 @@
 #+PROPERTY:  header-args :tangle ./emacs_config/init.el
 #+html: <p align="center"><b> This repo still under construction ❗ </b></p>
 #+html: <p align="center">
-#+html: <img src="./files/img/const.png" alt="contruction image" width="80" align="center">
+#+html: <img src="./shots/const.png" alt="contruction image" width="80" align="center">
 #+html: </p>
 #+html: <hr>
 
