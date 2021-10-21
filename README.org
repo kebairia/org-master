@@ -356,7 +356,7 @@ click to see the image in full size
   
   # Bind derivatives change variable values *locally* on export.
   
-  These two are because I'm defining the title and toc manually using latex, so I don't want org-latex to take care of that.
+  These two are here because I'm defining the title and toc manually using latex, so I don't want org-latex to take care of that.
   ,#+BIND: org-latex-title-command ""
   ,#+BIND: org-latex-toc-command ""
   This is so that src code blocks get src highlighting from the minted package.
