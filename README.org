@@ -101,7 +101,29 @@
   #+html: <details><summary> <b>org-ref installation & configuration </b> </summary>
   #+begin_src emacs-lisp
     ;; Installing ORG-REF
-    (use-package 'org-ref)
+    (use-package org-ref
+      :after org
+      :config
+      (setq org-ref-default-bibliography '("<path/to/your/bibliography>")
+            org-ref-bibliography-notes "<path/to/your/bibliography>"
+            org-ref-pdf-directory "<path/to/your/papers/folder>"
+            org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
+            bibtex-completion-pdf-field "file"
+            bibtex-completion-pdf-symbol ""
+            bibtex-completion-display-formats
+            '((t . "${title:46} ${author:20} ${year:4} ${=type=:4}${=has-pdf=:1}${=has-note=:1}"))))
+    
+    (defun org-ref-open-in-scihub ()
+      "Open the bibtex entry at point in a browser using the url field or doi field.
+      Not for real use, just here for demonstration purposes."
+      (interactive)
+      (let ((doi (org-ref-get-doi-at-point)))
+        (when doi
+          (if (string-match "^http" doi)
+              (browse-url doi)
+            (browse-url (format "http://sci-hub.se/%s" doi)))
+          (message "No url or doi found"))))
+    ,#+end_src
   #+end_src
   #+html: </details>
 
