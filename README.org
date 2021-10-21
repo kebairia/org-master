@@ -50,7 +50,7 @@ click to see the image in full size
 :END:
 - you can use any Emacs package manager you want, but i prefer
    using [[https://github.com/raxod502/straight.el][straight.el]].
-  #+html: <details><summary> <b>Straight.el config </b> </summary>
+  #+html: <details open><summary> <b>Straight.el config </b> </summary>
   #+begin_src emacs-lisp
    ;;-------------------------
    ;; MANDATORY PACKAGES
@@ -77,7 +77,7 @@ click to see the image in full size
  #+end_src                       
   #+html: </details>
 - [[https://orgmode.org/][org]] 
-  #+html: <details><summary> <b> org mode installation & configuration </b></summary>
+  #+html: <details open><summary> <b> org mode installation & configuration </b></summary>
   #+begin_src emacs-lisp
     ;; Installing ORG
     (use-package org)
@@ -85,7 +85,7 @@ click to see the image in full size
   #+html: </details>
 - [[https://github.com/org-mode/contrib][org-contrib]]
   here we can see the usefulness of ~straight.el~ packages manager
-  #+html: <details><summary> <b> org contrib installation & configuration </b></summary>
+  #+html: <details open><summary> <b> org contrib installation & configuration </b></summary>
   #+begin_src emacs-lisp
     ;; Installing and configure ORG-CONTRIB 
     (use-package org-contrib
@@ -96,7 +96,7 @@ click to see the image in full size
   #+html: </details>
 - [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] (i might replace it with org-cite or
   org-ref-cite "org-refv3" in the future)
-  #+html: <details><summary> <b>org-ref installation & configuration </b> </summary>
+  #+html: <details open><summary> <b>org-ref installation & configuration </b> </summary>
   #+begin_src emacs-lisp
     ;; Installing ORG-REF
     (use-package org-ref
@@ -324,7 +324,7 @@ click to see the image in full size
 :ID: main_structure
 :END:
 
-#+html: <details><summary> <b> Main file configuration </b> </summary>
+#+html: <details open><summary> <b> Main file configuration </b> </summary>
 #+begin_src org
   ,#+TITLE:            my org thesis
   ,#+SUBTITLE:         it is great to use Emacs
