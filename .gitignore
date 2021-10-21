@@ -11,3 +11,4 @@ lib/*
 *.aux
 /org_master.*
 /emacs_config/nano/*.el
+/docs/org_master.pdf
