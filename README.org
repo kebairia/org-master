@@ -10,26 +10,29 @@
 :TOC:      :include all :ignore this
 :END:
 :CONTENTS:
-- [[id:screenshots][Screenshots]]
-- [[id:installation][Installation]]
-  - [[id:deps][Dependencies]]
-    - [[id:emacs_packages][Emacs Packages]]
-    - [[id:system][system]]
-    - [[id:files_and_libs][Files and Libraries]]
-- [[id:config][Configuration]]
-  - [[id:emacs-config][Emacs configuration]]
-    - [[id:org][org]]
-      - [[id:babel][Babel]]
-    - [[id:org-ref][org ref]]
-    - [[id:latex][Latex]]
-      - [[id:classes][classes]]
-      - [[id:minted][minted]]
-      - [[id:syntax][syntax highlighting, babel and other configs]]
-    - [[###functions][functions]]
+- [[#screenshots][Screenshots]]
+- [[#Installation][Installation]]
+  - [[#deps][Dependencies]]
+    - [[#emacs_packages][Emacs Packages]]
+    - [[#system][system]]
+    - [[#files_and_libs][Files and Libraries]]
+- [[#config][Configuration]]
+  - [[#emacs-config][Emacs configuration]]
+    - [[#org][org]]
+      - [[#babel][Babel]]
+    - [[#org-ref][org ref]]
+    - [[#latex][Latex]]
+      - [[#classes][classes]]
+      - [[#minted][minted]]
+      - [[#syntax][syntax highlighting, babel and other configs]]
+    - [[#functions][functions]]
 - [[#Building][Building]]
-- [[#Main structure of your org file][Main structure of your org file]]
+- [[#main_structure][Main structure of your org file]]
 :END:
 ** Screenshots
+:PROPERTIES:
+:CUSTOM_ID: screenshots
+:END:
 click to see the image in full size
 #+html: <img src="./shots/00.png" alt="toc" width="500" align="center">
 #+html: <img src="./shots/01.png" alt="intro" width="500" align="center">
@@ -38,15 +41,15 @@ click to see the image in full size
 ** Usage
 ** Installation
 :PROPERTIES:
-:ID: installation
+:custom_id: installation
 :END:
 *** Dependencies
 :PROPERTIES:
-:ID: deps
+:custom_id: deps
 :END:
 **** Emacs packages
 :PROPERTIES:
-:ID: emacs_packages
+:custom_id: emacs_packages
 :END:
 - you can use any Emacs package manager you want, but i prefer
    using [[https://github.com/raxod502/straight.el][straight.el]].
@@ -128,7 +131,7 @@ click to see the image in full size
 - ox-latex
 **** System
 :PROPERTIES:
-:ID: system
+:custom_id: system
 :END:
 - Linux 
   - Arch-based (Artix, Manjaro, Parabola): ~pacman -S texlive-most texlive-lang~
@@ -141,12 +144,12 @@ click to see the image in full size
 
 **** Files and Libraries
 :PROPERTIES:
-:ID: files_and_libs
+:custom_id: files_and_libs
 :END:
 - [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] 
 ** Configuration
 :PROPERTIES:
-:ID: config
+:custom_id: config
 :END:
 1. follow the instruction on the [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] repo on how you can add
    this library and use it on your project
@@ -160,7 +163,7 @@ click to see the image in full size
       you can modify it by yourself and add any extra configuration
       you see fit.
 3. add *org*, *org-ref* and *latex* configuration to your init.el, (this is
-    the emacs's configuration file), you can use my own [[id:emacs-config][configuration]]
+    the emacs's configuration file), you can use my own [[0emacs-config][configuration]]
 4. ~./lib/code.inc~: contain function for cleaning, exporting and building,
     i use them throughout my work using the keyword ~#+CALL~ 
    - an example for that is when i used the ~init()~ function to clean
@@ -173,15 +176,15 @@ click to see the image in full size
      #+end_src
 *** Emacs configuration
 :PROPERTIES:
-:ID:       emacs-config
+:custom_id: emacs-config
 :END:
 **** org 
 :PROPERTIES:
-:ID: org
+:custom_id: org
 :END:
 ***** Babel
 :PROPERTIES:
-:ID: babel
+:custom_id: babel
 :END:
    #+BEGIN_SRC emacs-lisp
      (eval-after-load "org"
@@ -202,7 +205,7 @@ click to see the image in full size
    #+END_SRC
 **** org ref
 :PROPERTIES:
-:ID: org-ref
+:custom_id: org-ref
 :END:
 #+begin_src emacs-lisp
   (use-package org-ref
@@ -224,11 +227,11 @@ click to see the image in full size
 #+end_src
 **** Latex
 :PROPERTIES:
-:ID: latex
+:custom_id: latex
 :END:
 ***** classes
 :PROPERTIES:
-:ID: classes
+:custom_id: classes
 :END:
  #+begin_src emacs-lisp
    (with-eval-after-load 'ox-latex
@@ -270,7 +273,7 @@ click to see the image in full size
  #+end_src
 ***** minted 
 :PROPERTIES:
-:ID: minted
+:custom_id: minted
 :END:
 #+begin_src emacs-lisp
   ;; Coloured LaTeX using Minted
@@ -281,7 +284,7 @@ click to see the image in full size
 #+end_src
 ***** syntax highlighting, babel and other configs
 :PROPERTIES:
-:ID: syntex
+:custom_id: syntex
 :END:
 #+begin_src emacs-lisp
   ;; syntex-highlighting
@@ -298,7 +301,7 @@ click to see the image in full size
  
 **** functions
 :PROPERTIES:
-:ID: funcs
+:custom_id: funcs
 :END:
 - idea from [[https://www.lonecpluspluscoder.com/2021/09/07/emacs-enable-multiple-minor-modes-from-major-mode/]["Automatically enabling multiple Emacs minor modes via a major mode hook - The..."]]
 #+begin_src emacs-lisp
@@ -314,14 +317,14 @@ click to see the image in full size
 #+end_src
 ** Building 
 :PROPERTIES:
-:ID: building
+:custom_id: building
 :END:
 - use ~make build~ to build the .pdf file, ~make clean~ to clean the temp
   files, ~make watch~ to sync your modification with the preview using your PDF viewer \\
   you can specify your PDF viewer application in the [[file:latexmkrc::11]] file
 ** Main structure of your org file
 :PROPERTIES:
-:ID: main_structure
+:custom_id: main_structure
 :END:
 
 #+html: <details open><summary> <b> Main file configuration </b> </summary>
