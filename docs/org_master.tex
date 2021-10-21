@@ -1,0 +1,348 @@
+% Created 2021-10-20 Wed 22:29
+% Intended LaTeX compiler: lualatex
+\documentclass{mimosis}
+    \usepackage{minted}
+    \newrobustcmd*{\mycircle}[1]{\tikz{\filldraw[draw=#1,fill=#1] (0,0) circle [radius=2.2pt];}}
+\usepackage{xcolor}
+
+\definecolor{hd-red}   {RGB}{197, 13, 41}
+\definecolor{hd-brown} {RGB}{ 90, 15, 20}
+\definecolor{hd-beige} {RGB}{245, 240, 234}
+\definecolor{hd-yellow}{RGB}{255, 191, 0}
+\definecolor{hd-blue}  {RGB}{70, 129, 180}
+\renewcommand{\floatpagefraction}{.8}%
+\DeclareSIUnit\px{px}
+\RequirePackage[%
+colorlinks = true,
+citecolor  = hd-red,
+linkcolor  = hd-red,
+urlcolor   = hd-red,
+]{hyperref}
+\RequirePackage{bookmark}
+\usepackage{bookmark}
+\bookmarksetup{depth=2}
+\usepackage{bbding}
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip1em
+\hbox{}\nobreak\hfill #1%
+\parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+\newsavebox\mybox
+\newenvironment{aquote}[1]
+{\savebox\mybox{#1}\begin{quote}\openautoquote\hspace*{-.7ex}}
+{\unskip\closeautoquote\vspace*{1mm}\signed{\usebox\mybox}\end{quote}}
+\usepackage{hyphenat}
+\hyphenation{deoxy-hemo-glo-bin}
+\hyphenation{Sie-mens}
+\hyphenation{multi-band multi-echo}
+\usepackage[level]{datetime}
+\setstretch{1.25}
+\setparsizes{0em}{0.1\baselineskip plus .1\baselineskip}{1em plus 1fil}
+\renewcommand{\th}{\textsuperscript{\textup{th}}\xspace}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.12}
+
+% Permits accessing the smallest and largest x value of a plot
+\makeatletter
+\newcommand{\pgfplotsxmin}{\pgfplots@xmin}
+\newcommand{\pgfplotsxmax}{\pgfplots@xmax}
+\makeatother
+
+% Permits accessing the smallest and largest y value of a plot
+\makeatletter
+\newcommand{\pgfplotsymin}{\pgfplots@ymin}
+\newcommand{\pgfplotsymax}{\pgfplots@ymax}
+\makeatother
+\renewcommand{\floatpagefraction}{.8}%
+\usepackage{metalogo}
+\usepackage{etoolbox}
+
+\usepackage[binary-units=true]{siunitx}
+\DeclareSIUnit\px{px}
+
+\sisetup{%
+detect-all           = true,
+detect-family        = true,
+detect-mode          = true,
+detect-shape         = true,
+detect-weight        = true,
+detect-inline-weight = math,
+}
+\usepackage{indentfirst}
+\setlength{\parindent}{0.2cm} % Default is 15pt.
+\usepackage[%
+autocite     = plain,
+backend      = biber,
+doi          = true,
+url          = true,
+giveninits   = true,
+hyperref     = true,
+maxbibnames  = 99,
+maxcitenames = 99,
+sortcites    = true,
+style        = numeric,
+]{biblatex}
+
+\input{bibliography-mimosis}
+\AtEveryBibitem{%
+\clearfield{urlyear}
+\clearfield{urlmonth}
+\clearfield{note}
+\clearfield{issn} % Remove issn
+\ifentrytype{online}{}{% Remove url except for @online
+\clearfield{url}
+}
+}
+\setlength\bibitemsep{1.1\itemsep}
+\renewcommand*{\bibfont}{\footnotesize}
+\usepackage[sf,scaled=0.9]{quattrocento}
+\ifxetexorluatex
+\setmainfont{Minion Pro}
+\else
+\usepackage[lf]{ebgaramond}
+\usepackage[oldstyle,scale=0.7]{Sudo}
+\singlespacing
+\fi
+\makeatletter
+\renewcommand{\partformat}{\huge\partname~\color{hd-red}\thepart\autodot}
+\renewcommand*{\chapterformat}{  \mbox{\chapappifchapterprefix{\nobreakspace}{\color{hd-red}\fontsize{50}{55}\selectfont\thechapter}\autodot\enskip}}
+\renewcommand\@seccntformat[1]{\color{hd-red} {\csname the#1\endcsname}\hspace{0.3em}}
+\makeatother
+\numberwithin{equation}{chapter}
+\usepackage{listings}
+\usepackage{minted}
+\newminted{python}{frame=single,framerule=2pt}
+\setminted{autogobble=true,fontsize=\small,baselinestretch=0.8,breaklines,linenos}
+\setminted[python]{python3=true,tabsize=4}
+\usemintedstyle{trac}
+\lstset{abovecaptionskip=0}
+\numberwithin{listing}{chapter}
+\renewcommand{\listingscaption}{Code Snippet}
+\usepackage{scrhack}
+\usepackage{glossaries}
+\makeglossaries
+\newglossaryentry{latex}{name={\LaTeX},description={A document preparation system},sort={LaTeX}}
+\newacronym[description={Operating System}]{OS}{OS}{OS}
+\newacronym[description={Internet Protocol}]{IP}{IP}{IP}
+\newacronym[description={Transmission Control Protocol}]{TCP}{TCP}{TCP}
+\newacronym[description={Hypertext Transfer Protocol}]{HTTP}{HTTP}{HTTP}
+\bibliography{~/org/bib/refs}
+\pagenumbering{roman}
+\pagenumbering{arabic}
+
+   \newcommand{\mboxparagraph}[1]{\paragraph{#1}\mbox{}\\}
+   \newcommand{\mboxsubparagraph}[1]{\subparagraph{#1}\mbox{}\\}
+\author{Kebairia Zakaria}
+\date{\today}
+\title{An introduction}
+\hypersetup{
+ pdfauthor={Kebairia Zakaria},
+ pdftitle={An introduction},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.4.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\setcounter{tocdepth}{1}
+ \frontmatter
+\glsenablehyper
+\selectlanguage{ngerman}
+
+\begin{titlepage}
+	\begin{center}
+		\textsc{\huge Inaugural-Dissertation}
+                \vskip 1cm
+                \begin{large}
+                  to obtain a Master degree\\[0.50cm]
+                  \begin{Large}
+                    \textsc{in Computer Science}\\[0.50cm]
+                  \end{Large}
+                  at\\[0.50cm]
+                  \begin{Large}
+                    \textsc{the Higher School of Computer Science\\Sidi bel Abess}\par
+                  \end{Large}
+                \end{large}
+		%
+		\vfill
+		%
+		%% \begin{large}
+                %%   vorgelegt von\\
+                %%   Diplom-Mathematiker\\[0.5cm]
+                %%   \begin{LARGE}
+                %%     \textbf{Albrecht Dold}
+                %%   \end{LARGE}\\[0.5cm]
+                %%   aus Nu{\ss}bach
+		%% \end{large}
+    %
+    \vskip 1cm
+    %
+    \begin{small}
+      ESI-SBA(08 Mai 1945) --- \today
+    \end{small}
+	\end{center}
+\end{titlepage}
+\selectlanguage{english}
+
+\begin{titlepage}
+  %
+  \phantom{}
+  \vfill 
+  %
+  \begin{center}
+    \begin{singlespace*}
+      \begin{Huge}
+          \textbf{Serverless Edge Computing}\\
+          Suspicious behavior detection using Deep Learning\par
+      \end{Huge}
+      %
+      \vskip 0.25cm
+      \emph{by}
+      \vskip 0.25cm
+      %
+      \textsc{Zakaria Kebairia\\
+                      \&\\
+              Alaa Khadraoui}\par
+    \end{singlespace*}
+  \end{center}
+  %
+  \vfill
+  %
+  \begin{singlespace*}
+    Supervisors:            Prof.\,Dr.\,Abdelatif Rahmoun\\
+    \phantom{Supervisors:}  Dr.\,Hamdane Bensenane
+  \end{singlespace*}
+\end{titlepage}
+
+\newpage
+\null
+\thispagestyle{empty}
+\newpage
+
+\begin{center}
+\begin{large}
+  \textsc{Abstract}
+\end{large}
+\end{center}
+%
+\noindent
+%
+Put your abstract here
+\clearpage
+
+\begin{center}
+    \section*{Acknowledgment}
+\end{center}
+%% \addcontentsline{toc}{section}{\protect\numberline{}Acknowledgement}
+Put your acknowledgement here
+
+\hspace{0pt}\\ 
+\begin{flushright}
+Any sufficiently advanced technology is indistinguishable from magic.
+\emph{---Arthur C. Clarke}
+\end{flushright}
+\clearpage
+\tableofcontents
+\mainmatter
+
+ \part[Prologue]{Prologue\\ \vspace{1cm}\begin{minipage}[l]{\textwidth}\textnormal{\normalsize\begin{singlespace*}\onehalfspacing
+Description for PART I
+\end{singlespace*}}\end{minipage}}
+
+\chapter{Introduction}
+\label{sec:org1cf719d}
+This \textbf{package} contains a minimal, modern template for writing your \autoref{fig:myfig1}
+thesis. While originally meant to be used for a Ph.D. thesis, you can
+equally well use it for your honour thesis, bachelor thesis, and so
+on---some adjustments may be necessary, though.
+these are citation \cite{Laramee11,Laramee10} and \cite{Edelsbrunner02}, \cite{Edelsbrunner10}
+so be \autocite{Tufte01}
+\section{Why?}
+\label{sec:org1665969}
+I was not satisfied with the available templates for and wanted
+to heed the style advice given by people such as Robert Bringhurst \cite{Bringhurst12} or Edward R.
+Tufte \cite{Tufte90,Tufte01} . While there \emph{are} some packages out 
+there that attempt to emulate these styles, I found them to be either
+too bloated, too playful, or too constraining. This template attempts to
+produce a beautiful look without having to resort to any sort of hacks.
+I hope you like it \cite{nikouei19:_i_safe}.
+
+\section{How?}
+\label{sec:orgc5c1d69}
+The package tries to be easy to use. If you are satisfied with the
+default settings, just add \texttt{\textbackslash{}documentclass\{mimosis\}} at the beginning of your document.
+This is sufficient to use the class.
+It is possible to build your document using either  or. I personally prefer one of the latter two because they make
+it easier to select proper fonts.
+\section{Features}
+\label{sec:org966169b}
+\subsection{Tables}
+\label{sec:orgb67753c}
+
+\begin{table}[htbp]
+\caption{\label{table1}Testing table}
+\centering
+\begin{tabular}{ll}
+\toprule
+\textbf{Package} & \textbf{Purpose}\\
+\midrule
+math & for math and other\\
+matplotlib & for ploting with python\\
+another test & another purpose\\
+\bottomrule
+\end{tabular}
+\end{table}
+The template automatically imports numerous convenience packages that
+aid in your typesetting process.
+most important ones. Let's briefly discuss some examples below. Please
+refer to the source code for more demonstrations.
+\subsection{images}
+\label{sec:orgca22964}
+\subsection{Equations}
+\label{sec:org02f870e}
+Define new mathematical operators using \verb|\DeclareMathOperator|.
+Some operators are already pre-defined by the template, such as the
+distance between two objects. Please see the template for some examples. 
+\%
+Moreover, this template contains a correct differential operator. Use \verb|\diff| to typeset the differential of integrals:
+\begin{equation}\label{eq:equation1}
+  f(u) := \int_{v \in \domain}\dist(u,v)\diff{v}
+\end{equation}
+You can see that, as a courtesy towards most mathematicians, this
+template gives you the possibility to refer to the real numbers 
+and the domain \textasciitilde{}\(\domain\) of some function. Take a look at the source for
+more examples. By the way, the template comes with spacing fixes for the
+automated placement of brackets.
+and to the equation \eqref{eq:equation1}
+
+ \part[Background]{Background\\ \vspace{1cm}\begin{minipage}[l]{\textwidth}\textnormal{\normalsize\begin{singlespace*}\onehalfspacing
+Description for PART II
+\end{singlespace*}}\end{minipage}}
+\chapter[Configuration]{Chapter 2}
+\label{sec:org67669b5}
+ \part[Epilogue]{Epilogue\\ \vspace{1cm}\begin{minipage}[l]{\textwidth}\textnormal{\normalsize\begin{singlespace*}\onehalfspacing
+Epilogue
+\end{singlespace*}}\end{minipage}}
+\chapter[Conclusion]{Chapter 3}
+\label{sec:org59b1f11}
+\appendix
+\chapter{Emacs and Org mode}
+\label{sec:org9aba697}
+this document is made using \gls{latex} and Emacs
+
+% This ensures that the subsequent sections are being included as root
+% items in the bookmark structure of your PDF reader.
+\bookmarksetup{startatroot}
+\backmatter
+\begingroup
+    \let\clearpage\relax
+    \glsaddall
+    \printglossary[type=\acronymtype]
+    \newpage
+    \printglossary
+\endgroup
+\printindex
+
+\printbibliography
+%% \bibliographystyle{unsrt}
+%% \bibliography{./lib/refs}
+\end{document}

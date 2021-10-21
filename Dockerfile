@@ -1,22 +1,24 @@
 FROM silex/emacs
-MAINTAINER ZEKE <zek@kebairia.com>
+# FROM org-test
+MAINTAINER ZEKE <github.com/kebairia>
 
 ENV LANG=C.UTF-8
-RUN xauth \
-    && xauth add artbox/unix:0  MIT-MAGIC-COOKIE-1  38635c3db97233de72489f7f93c42a4b \
-    && echo "$(cat /etc/os-release)"
-COPY ./emacs_config /root/.config/emacs/
-VOLUME ["./figures","/data/figures"]
-VOLUME ["./lib","/data/lib"]
 
 # Update the system
-RUN apt-get -y update 
-RUN apt-get install -y git
+RUN apt-get update && \
+    apt-get install -y git make && \
+    rm -rf /var/lib/apt/lists/*
+
+# RUN xauth add artbox/unix:0  MIT-MAGIC-COOKIE-1  ec315a18fcbcb831dbd98eef471940f8 \
+#     && echo "$(cat /etc/os-release)"
+COPY ./emacs_config /root/.config/emacs/
+COPY ./emacs_config/nano /root/.config/emacs/nano
+COPY ./fonts /root/.local/share/fonts
+# VOLUME ["./figures","/data/figures"]
+# VOLUME ["./lib","/data/lib"]
+
 
 
 # WORKDIR /data
 CMD ["emacs","q", "--load", "/root/.config/emacs/init.el"]
 # CMD ["emacs"]
-
-
-
