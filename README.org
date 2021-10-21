@@ -1,4 +1,10 @@
-#+PROPERTY:  header-args :tangle ./emacs_config/init.el
+
+# ---------------------------------------------------------------------
+#+STARTUP:          content showstars indent
+#+EXCLUDE_TAGS:     journal noexport
+#+EXPORT_FILE_NAME: org_master.pdf
+#+ARCHIVE:          ~/dox/wrk/pfe/docs/thesis_infra/thesis.archive.org
+# ---------------------------------------------------------------------
 #+html: <p align="center"><b> This repo still under construction ❗ </b></p>
 #+html: <p align="center">
 #+html: <img src="./shots/const.png" alt="contruction image" width="80" align="center">
@@ -36,6 +42,7 @@
 :CUSTOM_ID: screenshots
 :END:
 click to see the image in full size
+
 #+html: <img src="./shots/00.png" alt="toc" width="500" align="center">
 #+html: <img src="./shots/01.png" alt="intro" width="500" align="center">
 #+html: <img src="./shots/02.png" alt="intro2" width="500" align="center">
