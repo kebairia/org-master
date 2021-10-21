@@ -30,14 +30,11 @@
 - [[#Main structure of your org file][Main structure of your org file]]
 :END:
 ** Screenshots
-#+attr_html: :alt table_of_content :width 200
-[[file:shots/00.png]]
-#+attr_html: :alt table_of_content :width 200
-[[file:shots/01.png]]
-#+attr_html: :alt table_of_content :width 200
-[[file:shots/02.png]]
-#+attr_html: :alt table_of_content :width 200
-[[file:shots/03.png]]
+click to see the image in full size
+#+html: <img src="./shots/00.png" alt="toc" width="500" align="center">
+#+html: <img src="./shots/01.png" alt="intro" width="500" align="center">
+#+html: <img src="./shots/02.png" alt="intro2" width="500" align="center">
+#+html: <img src="./shots/03.png" alt="bib" width="500" align="center">
 ** Usage
 ** Installation
 :PROPERTIES:
