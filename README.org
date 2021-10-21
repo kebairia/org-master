@@ -12,10 +12,12 @@
 :CONTENTS:
 - [[#screenshots][Screenshots]]
 - [[#Installation][Installation]]
-  - [[#deps][Dependencies]]
+  - [[#manual][Manual]]
+    - [[#deps][Dependencies]]
     - [[#emacs_packages][Emacs Packages]]
     - [[#system][system]]
     - [[#files_and_libs][Files and Libraries]]
+  - [[#docker][Docker]]
 - [[#config][Configuration]]
   - [[#emacs-config][Emacs configuration]]
     - [[#org][org]]
@@ -43,6 +45,9 @@ click to see the image in full size
 :custom_id: installation
 :END:
 *** Manual 
+:PROPERTIES:
+:CUSTOM_ID: manual
+:END:
 **** Dependencies
 :PROPERTIES:
 :custom_id: deps
@@ -148,6 +153,9 @@ click to see the image in full size
 :END:
 - [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] 
 *** Docker
+:PROPERTIES:
+:CUSTOM_ID: docker
+:END:
 #+begin_src sh
   xhost +local:root # WARN: this comes with security issues
   docker run -it --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix kebairia/org-master
