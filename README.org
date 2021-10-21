@@ -10,30 +10,45 @@
 :TOC:      :include all :ignore this
 :END:
 :CONTENTS:
-- [[#Screenshots][Screenshots]]
-- [[#Installation][Installation]]
-  - [[##Dependencies][Dependencies]]
-- [[#Configuration][Configuration]]
-  - [[##Emacs configuration][Emacs configuration]]
-    - [[###org][org]]
-      - [[####Babel][Babel]]
-    - [[###org ref][org ref]]
-    - [[###Latex][Latex]]
-      - [[####classes][classes]]
-      - [[####minted][minted]]
-      - [[####syntax highlighting, babel and other configs][syntax highlighting, babel and other configs]]
+- [[id:screenshots][Screenshots]]
+- [[id:installation][Installation]]
+  - [[id:deps][Dependencies]]
+    - [[id:emacs_packages][Emacs Packages]]
+    - [[id:system][system]]
+    - [[id:files_and_libs][Files and Libraries]]
+- [[id:config][Configuration]]
+  - [[id:emacs-config][Emacs configuration]]
+    - [[id:org][org]]
+      - [[id:babel][Babel]]
+    - [[id:org-ref][org ref]]
+    - [[id:latex][Latex]]
+      - [[id:classes][classes]]
+      - [[id:minted][minted]]
+      - [[id:syntax][syntax highlighting, babel and other configs]]
     - [[###functions][functions]]
 - [[#Building][Building]]
 - [[#Main structure of your org file][Main structure of your org file]]
 :END:
 ** Screenshots 
+:PROPERTIES:
+:ID: screenshots
+:END:
 [[file:shots/00.png]]
 [[file:shots/01.png]]
 [[file:shots/02.png]]
 [[file:shots/03.png]]
 ** Installation
+:PROPERTIES:
+:ID: installation
+:END:
 *** Dependencies
+:PROPERTIES:
+:ID: deps
+:END:
 **** Emacs packages
+:PROPERTIES:
+:ID: emacs_packages
+:END:
 - you can use any Emacs package manager you want, but i prefer
    using [[https://github.com/raxod502/straight.el][straight.el]].
 - Straight.el
@@ -84,6 +99,9 @@
 
 - ox-latex
 **** system
+:PROPERTIES:
+:ID: system
+:END:
 - Linux 
   - Arch-based (Artix, Manjaro, Parabola): ~pacman -S texlive-most texlive-lang~
   - Debian-based (Ubuntu/Linux Mint): ~apt-get install texlive-full~
@@ -94,8 +112,14 @@
 - MacOS: [[https://tug.org/mactex/][Here]]
 
 **** Files and Libraries
+:PROPERTIES:
+:ID: files_and_libs
+:END:
 - [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] 
 ** Configuration
+:PROPERTIES:
+:ID: config
+:END:
 1. follow the instruction on the [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] repo on how you can add
    this library and use it on your project
    - long story short, copy the files ~mimosis.cls~ and
@@ -124,7 +148,13 @@
 :ID:       emacs-config
 :END:
 **** org 
+:PROPERTIES:
+:ID: org
+:END:
 ***** Babel
+:PROPERTIES:
+:ID: babel
+:END:
    #+BEGIN_SRC emacs-lisp
      (eval-after-load "org"
        (use-package ob-async
@@ -143,6 +173,9 @@
         ))
    #+END_SRC
 **** org ref
+:PROPERTIES:
+:ID: org-ref
+:END:
 #+begin_src emacs-lisp
   (use-package org-ref
     :config
@@ -162,7 +195,13 @@
           ))
 #+end_src
 **** Latex
+:PROPERTIES:
+:ID: latex
+:END:
 ***** classes
+:PROPERTIES:
+:ID: classes
+:END:
  #+begin_src emacs-lisp
    (with-eval-after-load 'ox-latex
      (add-to-list 'org-latex-classes
@@ -202,6 +241,9 @@
      )
  #+end_src
 ***** minted 
+:PROPERTIES:
+:ID: minted
+:END:
 #+begin_src emacs-lisp
   ;; Coloured LaTeX using Minted
   (setq org-latex-listings 'minted
@@ -210,6 +252,9 @@
         '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -bibtex -output-directory=%o -f %f"))
 #+end_src
 ***** syntax highlighting, babel and other configs
+:PROPERTIES:
+:ID: syntex
+:END:
 #+begin_src emacs-lisp
   ;; syntex-highlighting
   (use-package htmlize)
@@ -224,6 +269,9 @@
  #+end_src
  
 **** functions
+:PROPERTIES:
+:ID: funcs
+:END:
 - idea from [[https://www.lonecpluspluscoder.com/2021/09/07/emacs-enable-multiple-minor-modes-from-major-mode/]["Automatically enabling multiple Emacs minor modes via a major mode hook - The..."]]
 #+begin_src emacs-lisp
   (defun enable-writing-minor-modes ()
@@ -237,10 +285,16 @@
     :hook (org-mode . enable-writing-minor-modes))
 #+end_src
 ** Building 
+:PROPERTIES:
+:ID: building
+:END:
 - use ~make build~ to build the .pdf file, ~make clean~ to clean the temp
   files, ~make watch~ to sync your modification with the preview using your PDF viewer \\
   you can specify your PDF viewer application in the [[file:latexmkrc::11]] file
 ** Main structure of your org file
+:PROPERTIES:
+:ID: main_structure
+:END:
 #+begin_src org
   ,#+TITLE:            my org thesis
   ,#+SUBTITLE:         it is great to use Emacs
