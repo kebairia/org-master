@@ -19,7 +19,7 @@
 
 
 ;; Path to nano emacs modules (mandatory)
-(add-to-list 'load-path "/home/zakaria/.config/emacs/nano")
+(add-to-list 'load-path "/root/.config/emacs/nano")
 (add-to-list 'load-path ".")
 
 ;; Default layout (optional)
@@ -66,7 +66,7 @@
 ;;(require 'nano-session)
 
 ;; Nano header & mode lines (optional)
-;;(require 'nano-modeline)
+(require 'nano-modeline)
 
 ;; Nano key bindings modification (optional)
 ;;(require 'nano-bindings)

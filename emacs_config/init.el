@@ -35,17 +35,17 @@
              (garbage-collect)) t)
 
 ;; load files
+(load "/root/.config/emacs/nano/nano.el")
+(load "/root/.config/emacs/nano/nano-layout.el") 
+(load "/root/.config/emacs/nano/nano-modeline.el") 
 (load "/root/.config/emacs/lisp/DEFAULTS.el") 
-(load "/root/.config/emacs/lisp/PACKAGES.el") 
+;; (load "/root/.config/emacs/lisp/PACKAGES.el") 
 ;; (load "~/.config/emacs/lisp/SESSIONS.el") 
 (load "/root/.config/emacs/lisp/BINDINGS.el") 
-(load "/root/.config/emacs/lisp/ORG.el") 
+;; (load "/root/.config/emacs/lisp/ORG.el") 
 ;; (load "~/.config/emacs/lisp/ORG-ROAM.el") 
 ;; (load "~/.config/emacs/lisp/PYTHON.el") 
 ;;(load "~/.config/emacs/lisp/MU4E.el") 
-(load "/root/.config/emacs/nano/nano.el") 	;
-(load "/root/.config/emacs/nano/nano-layout.el") 
-(load "/root/.config/emacs/nano/nano-modeline.el") 
 ;; (add-to-list 'load-path "~/.config/emacs/emacs-reveal")
 ;; (require 'emacs-reveal)
 
