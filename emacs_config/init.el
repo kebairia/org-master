@@ -1,3 +1,21 @@
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+;; use use-package along with straight
+(straight-use-package 'use-package)
+;; make `use-package` to automatically install all of your packages 
+;; without the need for adding `:straight t`.
+(setq straight-use-package-by-default t)
+
 ;;; package --- Summary  
 ;; Load configuration from ~/.config/emacs/lisp/*.el
 
@@ -18,7 +36,7 @@
 
 ;; load files
 (load "/root/.config/emacs/lisp/DEFAULTS.el") 
-;; (load "~/.config/emacs/lisp/PACKAGES.el") 
+(load "/root/.config/emacs/lisp/PACKAGES.el") 
 ;; (load "~/.config/emacs/lisp/SESSIONS.el") 
 (load "/root/.config/emacs/lisp/BINDINGS.el") 
 ;; (load "~/.config/emacs/lisp/ORG.el") 
