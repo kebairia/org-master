@@ -10,3 +10,4 @@ lib/*
 /_minted-*
 *.aux
 /org_master.*
+/emacs_config/nano/*.el
