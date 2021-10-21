@@ -51,7 +51,6 @@
 :END:
 - you can use any Emacs package manager you want, but i prefer
    using [[https://github.com/raxod502/straight.el][straight.el]].
-- Straight.el
   #+html: <details><summary> <b>Straight.el config </b> </summary>
   #+begin_src emacs-lisp
    ;;-------------------------
