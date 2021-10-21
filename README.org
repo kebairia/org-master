@@ -5,7 +5,7 @@
 #+html: </p>
 #+html: <hr>
 
-** Table of Contents
+#+html: <details><summary> <h2> Table of contents </summary> </h2>
 :PROPERTIES:
 :TOC:      :include all :ignore this
 :END:
@@ -29,14 +29,14 @@
 - [[#Building][Building]]
 - [[#Main structure of your org file][Main structure of your org file]]
 :END:
-** Screenshots 
-:PROPERTIES:
-:ID: screenshots
-:END:
+#+html: </details>
+#+html: <details><summary> <h2> Screenshots </summary> </h2>
 [[file:shots/00.png]]
 [[file:shots/01.png]]
 [[file:shots/02.png]]
 [[file:shots/03.png]]
+#+html: </details>
+** Usage
 ** Installation
 :PROPERTIES:
 :ID: installation
@@ -98,7 +98,7 @@
   #+end_src
 
 - ox-latex
-**** system
+**** System
 :PROPERTIES:
 :ID: system
 :END:
