@@ -38,16 +38,16 @@ click to see the image in full size
 #+html: <img src="./shots/01.png" alt="intro" width="500" align="center">
 #+html: <img src="./shots/02.png" alt="intro2" width="500" align="center">
 #+html: <img src="./shots/03.png" alt="bib" width="500" align="center">
-** Usage
 ** Installation
 :PROPERTIES:
 :custom_id: installation
 :END:
-*** Dependencies
+*** Manual 
+**** Dependencies
 :PROPERTIES:
 :custom_id: deps
 :END:
-**** Emacs packages
+***** Emacs packages
 :PROPERTIES:
 :custom_id: emacs_packages
 :END:
@@ -129,7 +129,7 @@ click to see the image in full size
   #+html: </details>
 
 - ox-latex
-**** System
+***** System
 :PROPERTIES:
 :custom_id: system
 :END:
@@ -142,7 +142,7 @@ click to see the image in full size
   packages.)
 - MacOS: [[https://tug.org/mactex/][Here]]
 
-**** Files and Libraries
+***** Files and Libraries
 :PROPERTIES:
 :custom_id: files_and_libs
 :END:
