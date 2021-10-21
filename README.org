@@ -5,7 +5,7 @@
 #+html: </p>
 #+html: <hr>
 
-#+html: <details><summary> <h2> Table of contents </summary> </h2>
+** Table of contents
 :PROPERTIES:
 :TOC:      :include all :ignore this
 :END:
@@ -29,13 +29,11 @@
 - [[#Building][Building]]
 - [[#Main structure of your org file][Main structure of your org file]]
 :END:
-#+html: </details>
-#+html: <details><summary> <h2> Screenshots </summary> </h2>
+** Screenshots
 [[file:shots/00.png]]
 [[file:shots/01.png]]
 [[file:shots/02.png]]
 [[file:shots/03.png]]
-#+html: </details>
 ** Usage
 ** Installation
 :PROPERTIES:
