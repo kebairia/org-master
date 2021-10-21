@@ -52,6 +52,8 @@
 - you can use any Emacs package manager you want, but i prefer
    using [[https://github.com/raxod502/straight.el][straight.el]].
 - Straight.el
+
+#+html: <details><summary> code </summary>
 #+begin_src emacs-lisp
   ;;-------------------------
   ;; MANDATORY PACKAGES
@@ -76,13 +78,17 @@
   ;; without the need for adding `:straight t`.
   (setq straight-use-package-by-default t)
 #+end_src
+#+html: </details>
 - [[https://orgmode.org/][org]] 
+#+html: <details><summary> code </summary>
   #+begin_src emacs-lisp
     ;; Installing ORG
     (use-package org)
   #+end_src
+#+html: </details>
 - [[https://github.com/org-mode/contrib][org-contrib]]
   here we can see the usefulness of ~straight.el~ packages manager
+#+html: <details><summary> code </summary>
   #+begin_src emacs-lisp
     ;; Installing and configure ORG-CONTRIB 
     (use-package org-contrib
@@ -90,12 +96,15 @@
       (require 'ox-extra)
       (ox-extras-activate '(latex-header-blocks ignore-headlines)))
   #+end_src
+#+html: </details>
 - [[https://github.com/jkitchin/org-ref][org-ref: John Kitchin]] (i might replace it with org-cite or
   org-ref-cite "org-refv3" in the future)
+#+html: <details><summary> code </summary>
   #+begin_src emacs-lisp
     ;; Installing ORG-REF
     (use-package 'org-ref)
   #+end_src
+#+html: </details>
 
 - ox-latex
 **** System
@@ -139,6 +148,7 @@
      my root directory.
    - first include the ~./lib/code.inc~ file, then call whatever function
      you want.
+     #+html: <details><summary> code </summary>
      #+begin_src org
        ,#+INCLUDE:          ./lib/code.inc
        ,#+CALL:             init()
@@ -295,6 +305,8 @@
 :PROPERTIES:
 :ID: main_structure
 :END:
+
+#+html: <details><summary> code </summary>
 #+begin_src org
   ,#+TITLE:            my org thesis
   ,#+SUBTITLE:         it is great to use Emacs
@@ -336,3 +348,4 @@
   And this configuration increases the default width of images, so that they are larger and more readable on print.
   ,#+BIND: org-latex-image-default-width ".97\\linewidth"
 #+end_src
+#+html: </details>
