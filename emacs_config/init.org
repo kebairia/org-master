@@ -18,7 +18,7 @@
 :header-args: :tangle ./init.el
 :header-args: :results none
 :END:
-** COMMENT STRAIGHT
+** STRAIGHT
 #+begin_comment
 I'm using [[https://github.com/raxod502/straight.el][straight.el]] as my main package manager for Emacs
 #+end_comment
