@@ -8,3 +8,4 @@ watch:
 
 clean:
 	latexmk -c 
+	rm -rf _minted*
