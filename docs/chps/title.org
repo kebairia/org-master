@@ -4,77 +4,82 @@
 #  MY TITLE
 #  Master: Serverless Edge computing
 # -------------------------------------
+* images                                                             :ignore:
+
+\selectlanguage{english}
+\begin{titlepage}
+#+attr_latex: :width 10cm
+[[file:ESI-SBA_title.png]]
+
+#+attr_latex: :width 3cm
+[[file:~/dox/wrk/pfe/docs/pfe_thesis/figures/dsg/esi-sba-logo-black.png]]
+# [[file:~/dox/wrk/pfe/docs/thesis_infra/figures/dsg/esi-sba-logo-black.png]]
 * 1st Page                                                           :ignore:
 #+begin_export latex
-\selectlanguage{ngerman}
+%\clearpage
+\thispagestyle{empty}
+\begin{center}
+\textbf {Final Year Thesis}\\[0.2cm]
 
-\begin{titlepage}
-	\begin{center}
-		\textsc{\huge Inaugural-Dissertation}
-                \vskip 1cm
-                \begin{large}
-                  to obtain a Master degree\\[0.50cm]
-                  \begin{Large}
-                    \textsc{in Computer Science}\\[0.50cm]
-                  \end{Large}
-                  at\\[0.50cm]
-                  \begin{Large}
-                    \textsc{the Higher School of Computer Science\\Sidi bel Abess}\par
-                  \end{Large}
-                \end{large}
-		%
-		\vfill
-		%
-		%% \begin{large}
-                %%   vorgelegt von\\
-                %%   Diplom-Mathematiker\\[0.5cm]
-                %%   \begin{LARGE}
-                %%     \textbf{Albrecht Dold}
-                %%   \end{LARGE}\\[0.5cm]
-                %%   aus Nu{\ss}bach
-		%% \end{large}
-    %
-    \vskip 1cm
-    %
-    \begin{small}
-      ESI-SBA(08 Mai 1945) --- \today
-    \end{small}
-	\end{center}
-\end{titlepage}
+{To obtain deploma of \textbf {Master}\\domain : \textbf {Computer Science}\\Specialty : \textbf {Computer System Engineering}}\\[0.2cm]
+
+%****************TITRE**************%
+\centering
+\end{center}
 
 #+end_export
-* 2nd Page                                                           :ignore:
+* TITLE                                                        :ignore:
 #+begin_export latex
-\selectlanguage{english}
-
-\begin{titlepage}
   %
   \phantom{}
   \vfill 
   %
   \begin{center}
+  \normalsize Theme\\[0.3cm]
     \begin{singlespace*}
       \begin{Huge}
-          \textbf{Serverless Edge Computing}\\
-          Suspicious behavior detection using Deep Learning\par
+          \textbf{Edge and Fog Computing\\
+          Based Video Management System}
       \end{Huge}
       %
       \vskip 0.25cm
-      \emph{by}
       \vskip 0.25cm
       %
-      \textsc{Zakaria Kebairia\\
-                      \&\\
-              Alaa Khadraoui}\par
+#+end_export
+* Presented by                                                       :ignore:
+#+begin_export latex
+
+%************Auteurs et encadrants*************%
+
+\normalsize \emph{Presented by :\\[0.1cm]}
+%\begin{center}
+%   \begin{itemize}
+ %      \item Mr BAALI Ahmed
+  %      \item Mr SAFARI Moubarek
+  % \end{itemize}
+   %\end{center}
+   \normalsize\textbf{Mr Kebairia Zakaria}\\ \&\\ \textbf{Mr Khadraoui Alaa\\[0.1cm]}
     \end{singlespace*}
   \end{center}
   %
   \vfill
   %
-  \begin{singlespace*}
-    Supervisors:            Prof.\,Dr.\,Abdelatif Rahmoun\\
-    \phantom{Supervisors:}  Dr.\,Hamdane Bensenane
-  \end{singlespace*}
+
+
+\begin{tabular}{llll}
+& Graduate in : 07 September 2021     &  & 	in front of jury composed by : \\[0.1cm]
+
+	& -	Pr. M.A.Boudhir 	&  & 		President\\
+	& -	Pr. A. Rahmoun		&  &  	        Supervisor\\
+	& -	Dr H. Bensenane		&  &		Co-Supervisor\\
+	& -	Dr. A.Malki             &  &            Examinator \\
+ 
+\end{tabular}
+%%   \begin{singlespace*}
+%%     Supervisors:            Pr. A. Rahmoun\\
+%%     Co-supervisor:          Dr H. Bensenane
+%%   \end{singlespace*}
+%% \
 \end{titlepage}
 
 \newpage
