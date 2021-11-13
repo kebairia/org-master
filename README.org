@@ -1,4 +1,3 @@
-
 # ---------------------------------------------------------------------
 #+STARTUP:          content showstars indent
 #+EXCLUDE_TAGS:     journal noexport
@@ -11,7 +10,7 @@
 #+html: </p>
 #+html: <hr>
 
-** Table of contents
+** Contents
 :PROPERTIES:
 :TOC:      :include all :ignore this
 :END:
@@ -159,7 +158,7 @@ click to see the image in full size
 :custom_id: files_and_libs
 :END:
 - [[https://github.com/Pseudomanifold/latex-mimosis][latex-mimosis]] 
-*** Docker
+*** COMMENT Docker
 :PROPERTIES:
 :CUSTOM_ID: docker
 :END:
@@ -167,7 +166,7 @@ click to see the image in full size
   xhost +local:root # WARN: this comes with security issues
   docker run -it --rm -e DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix kebairia/org-master
 #+end_src
-** Configuration
+*** Configuration
 :PROPERTIES:
 :custom_id: config
 :END:
@@ -194,15 +193,15 @@ click to see the image in full size
        ,#+INCLUDE:          ./lib/code.inc
        ,#+CALL:             init()
      #+end_src
-*** Emacs configuration
+**** Emacs configuration
 :PROPERTIES:
 :custom_id: emacs-config
 :END:
-**** org 
+***** org 
 :PROPERTIES:
 :custom_id: org
 :END:
-***** Babel
+****** Babel
 :PROPERTIES:
 :custom_id: babel
 :END:
@@ -223,7 +222,7 @@ click to see the image in full size
         (R . t)
         ))
    #+END_SRC
-**** org ref
+***** org ref
 :PROPERTIES:
 :custom_id: org-ref
 :END:
@@ -245,11 +244,11 @@ click to see the image in full size
           bibtex-completion-notes-symbol ""
           ))
 #+end_src
-**** Latex
+***** Latex
 :PROPERTIES:
 :custom_id: latex
 :END:
-***** classes
+****** classes
 :PROPERTIES:
 :custom_id: classes
 :END:
@@ -291,7 +290,7 @@ click to see the image in full size
                      ( "\\subparagraph{%s}" . "\\subparagraph*{%s}" )))
      )
  #+end_src
-***** minted 
+****** minted 
 :PROPERTIES:
 :custom_id: minted
 :END:
@@ -302,7 +301,7 @@ click to see the image in full size
         org-latex-pdf-process
         '("latexmk -pdflatex='xelatex -shell-escape -interaction nonstopmode' -pdf -bibtex -output-directory=%o -f %f"))
 #+end_src
-***** syntax highlighting, babel and other configs
+****** syntax highlighting, babel and other configs
 :PROPERTIES:
 :custom_id: syntex
 :END:
@@ -319,7 +318,7 @@ click to see the image in full size
    '(org-export-backends '(ascii beamed html calendar latex DOT)))
  #+end_src
  
-**** functions
+***** functions
 :PROPERTIES:
 :custom_id: funcs
 :END:
@@ -335,14 +334,16 @@ click to see the image in full size
   (use-package org
     :hook (org-mode . enable-writing-minor-modes))
 #+end_src
-** Building 
+** Getting Started 
+** Usage
+*** Building 
 :PROPERTIES:
 :custom_id: building
 :END:
 - use ~make build~ to build the .pdf file, ~make clean~ to clean the temp
   files, ~make watch~ to sync your modification with the preview using your PDF viewer \\
   you can specify your PDF viewer application in the [[file:latexmkrc::11]] file
-** Main structure of your org file
+*** Main structure of your org file
 :PROPERTIES:
 :custom_id: main_structure
 :END:
@@ -390,3 +391,4 @@ click to see the image in full size
   ,#+BIND: org-latex-image-default-width ".97\\linewidth"
 #+end_src
 #+html: </details>
+** Credits
